@@ -1,10 +1,12 @@
-# Jekyll Configuration
 markdown: kramdown
-
-# MathJax Support (optional but helpful documentation)
 kramdown:
-  math_engine: mathjax
-  syntax_highlighter: rouge
+  math_engine: mathjax # Explicitly enable math support
+  syntax_highlighter: rouge # For code highlighting
+
+# Optional but recommended for GH Pages
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
 
 # Other typical settings (customize as needed)
 title: Daniel's Portfolio
