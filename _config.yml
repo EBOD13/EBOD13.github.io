@@ -1,1 +1,13 @@
+# Jekyll Configuration
 markdown: kramdown
+
+# MathJax Support (optional but helpful documentation)
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+# Other typical settings (customize as needed)
+title: Daniel's Portfolio
+description: My website
+baseurl: "" # e.g., "/blog" if hosted at username.github.io/blog
+url: "" # e.g., "https://yourusername.github.io"
