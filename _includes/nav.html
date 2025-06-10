@@ -1,6 +1,70 @@
-<nav>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/math">Math Problems</a></li>
-  </ul>
+<nav class="nav container">
+    <div class="nav__data">
+        <a href="#" class="nav__logo"> 
+            <i class="ri-brain-2-line"></i>EBOD
+        </a>
+
+        <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line nav_burger"></i>
+            <i class="ri-close-line nav_close" ></i>
+        </div>
+    </div>
+
+
+        <!-- ========== NAV MENU ========= -->
+    <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+
+
+            <!-- =========== DROPDOWN 1 - MATH -->
+            <li class="dropdown__item">     <!--<a href="/math">Math</a> Need to come back and check this out -->
+                <div class="nav__link">
+                    Math <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                </div>
+
+                <!-- Sub-items -->
+
+                <ul class="dropdown__menu">
+                    <li>
+                        <a href="#" class="dropdown__link">
+                            <i class="ri-quill-pen-line"></i> Math Blog
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="dropdown__link">
+                            <i class="ri-formula"></i> Calculus Problems 
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown__link">
+                            <i class="ri-infinity-line"></i>Number Theory
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="dropdown__link">
+                            <i class="ri-file-copy-2-line"></i> IB Past Papers
+                        </a>
+                    </li>
+
+                    <li class="dropdown__subitem">
+                        <div class="dropdown__link">
+
+                        </div>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/books">Books</a></li>
+            <li><a href="/travel">Travel</a></li>
+            <li><a href="/resume">Resume</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </div>
+
 </nav>
