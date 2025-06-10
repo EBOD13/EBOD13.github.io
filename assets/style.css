@@ -297,6 +297,7 @@ a {
     position: absolute;
     left: 0;
     top: 6rem;
+    min-width: 220px;
     opacity: 0;
     pointer-events: none;
     transition: opacity .3s, top .3s;
@@ -305,7 +306,10 @@ a {
   .dropdown__link, 
   .dropdown__sublink {
     padding-inline: 1rem 3.5rem;
+    font-size: 1rem;
+    padding: 1rem 1.25rem;
   }
+
 
   .dropdown__subitem .dropdown__link {
     padding-inline: 1rem;
@@ -320,7 +324,7 @@ a {
   /* Show dropdown menu */
   .dropdown__item:hover .dropdown__menu {
     opacity: 1;
-    top: 5.5rem;
+    top: 100%;
     pointer-events: initial;
     transition: top .3s;
   }
@@ -331,5 +335,10 @@ a {
     top: 0;
     pointer-events: initial;
     transition: top .3s;
+  }
+
+  .dropdown__menu{
+    left: 0;
+    top: 100%;
   }
 }
