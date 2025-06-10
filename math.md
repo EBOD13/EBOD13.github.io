@@ -9,8 +9,7 @@ permalink: /math/
 ## Inductive Proof 1
 
 Prove:  
-$$1\cdot2 + 2\cdot3+ 3\cdot4 + \dots + n(n+1) = \frac{n(n+1)(n+2)}{3}$$  
-for all $$n \ge 1$$.
+$$1\cdot2 + 2\cdot3+ 3\cdot4 + \dots + n(n+1) = \frac{n(n+1)(n+2)}{3}$$ for all $$n \ge 1$$.
 
 ### Base Case
 
@@ -41,8 +40,7 @@ Which matches the right side. Therefore, by induction, the formula holds for all
 ## Inductive Proof 2
 
 Prove:
-$$1^2 + 3^2 + 5^2 + \dots + (2n-1)^2 = \frac{n(2n-1)(2n+1)}{3}$$  
-for all $$n \ge 1$$.
+$$1^2 + 3^2 + 5^2 + \dots + (2n-1)^2 = \frac{n(2n-1)(2n+1)}{3}$$ for all $$n \ge 1$$.
 
 ### Base Case
 
