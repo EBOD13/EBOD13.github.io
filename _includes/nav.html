@@ -1,61 +1,41 @@
-<nav class="nav container">
+<header class="header">
+  <nav class="nav container">
     <div class="nav__data">
-        <a href="#" class="nav__logo"> 
-            <i class="ri-brain-2-line"></i>EBOD
-        </a>
+      <a href="/" class="nav__logo"> 
+        <i class="ri-brain-2-line"></i> EBOD
+      </a>
 
-        <div class="nav__toggle" id="nav-toggle">
-            <i class="ri-menu-line nav_burger"></i>
-            <i class="ri-close-line nav_close" ></i>
-        </div>
+      <div class="nav__toggle" id="nav-toggle">
+        <i class="ri-menu-line nav__burger"></i>
+        <i class="ri-close-line nav__close"></i>
+      </div>
     </div>
 
-
-        <!-- ========== NAV MENU ========= -->
     <div class="nav__menu" id="nav-menu">
-        <ul class="nav__list">
+      <ul class="nav__list">
 
+        <!-- MATH Dropdown -->
+        <li class="dropdown__item">
+          <div class="nav__link">
+            Math <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+          </div>
 
-            <!-- =========== DROPDOWN 1 - MATH -->
-            <li class="dropdown__item">     <!--<a href="/math">Math</a> Need to come back and check this out -->
-                <div class="nav__link">
-                    Math <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                </div>
+          <ul class="dropdown__menu">
+            <li><a href="/math/blog" class="dropdown__link"><i class="ri-quill-pen-line"></i> Math Blog</a></li>
+            <li><a href="/math/calculus" class="dropdown__link"><i class="ri-function-line"></i> Calculus</a></li>
+            <li><a href="/math/number-theory" class="dropdown__link"><i class="ri-infinity-line"></i> Number Theory</a></li>
+            <li><a href="/math/ib" class="dropdown__link"><i class="ri-file-list-line"></i> IB Past Papers</a></li>
+          </ul>
+        </li>
 
-                <!-- Sub-items -->
-
-                <ul class="dropdown__menu">
-                    <li>
-                        <a href="#" class="dropdown__link">
-                            <i class="ri-quill-pen-line"></i> Math Blog
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="dropdown__link">
-                            <i class="ri-formula"></i> Calculus Problems 
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="dropdown__link">
-                            <i class="ri-infinity-line"></i>Number Theory
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="dropdown__link">
-                            <i class="ri-file-copy-2-line"></i> IB Past Papers
-                        </a>
-                    </li>
-
-                    <li class="dropdown__subitem">
-                        <div class="dropdown__link">
-
-                        </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+        <!-- Other Nav Items -->
+        <li><a href="/blog" class="nav__link">Blog</a></li>
+        <li><a href="/projects" class="nav__link">Projects</a></li>
+        <li><a href="/books" class="nav__link">Books</a></li>
+        <li><a href="/travel" class="nav__link">Travel</a></li>
+        <li><a href="/resume" class="nav__link">Resume</a></li>
+        <li><a href="/contact" class="nav__link">Contact</a></li>
+      </ul>
     </div>
-
-</nav>
+  </nav>
+</header>

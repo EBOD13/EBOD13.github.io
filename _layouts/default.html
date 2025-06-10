@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <title>{{ page.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Styles -->
   <link rel="stylesheet" href="/assets/style.css">
 
-  <!-- ICONS CDN -->
-   <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- MathJax -->
   <script>
     MathJax = {
       tex: {
@@ -26,15 +27,16 @@
   <script id="MathJax-script" async 
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
   </script>
-
-  <!-- ======= LOAD THE JS file ======= -->
-  <script src="/assets/scripts/main.js"></script>
-
 </head>
+
 <body>
-  <header class="header"> {% include nav.html %} </header>
-  <main>
+  {% include nav.html %}
+
+  <main role="main">
     {{ content }}
   </main>
+
+  <!-- Main JavaScript -->
+  <script src="/assets/scripts/main.js"></script>
 </body>
 </html>
