@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!--=============== GOOGLE FONTS ===============-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- MathJax -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async 
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+</head>
+
+<body>
+  {% include nav.html %}
+
+<main class="main">
+        <!--==================== HERO ====================-->
+        <section class="hero">
+            <div class="hero__content">
+                <h1 class="hero__title">The Intersection of Mathematics & Poetry</h1>
+                <p class="hero__subtitle">Where elegance meets precision in a dance of numbers and words</p>
+                <div class="hero__buttons">
+                    <a href="#math" class="btn btn--primary">Explore Mathematics</a>
+                    <a href="#poetry" class="btn btn--outline">Read Poetry</a>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== MATH ====================-->
+        <section class="math section" id="math">
+            <div class="math__container container">
+                <div class="math__header">
+                    <h2 class="math__title">Mathematical Explorations</h2>
+                    <p class="math__subtitle">Elegant solutions to complex problems, presented with clarity and beauty</p>
+                </div>
+                <div class="math__grid">
+                    <!-- Math Card 1 -->
+                    <div class="math__card">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Calculus" class="math__card-image">
+                        <div class="math__card-content">
+                            <h3 class="math__card-title">Calculus of Variations</h3>
+                            <p class="math__card-text">Exploring the beautiful optimization problems that describe nature's most efficient paths, from light refraction to economic models.</p>
+                            <a href="#" class="btn btn--outline">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Math Card 2 -->
+                    <div class="math__card">
+                        <img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Number Theory" class="math__card-image">
+                        <div class="math__card-content">
+                            <h3 class="math__card-title">Prime Number Mysteries</h3>
+                            <p class="math__card-text">Delving into the infinite mysteries of primes, their distribution patterns, and unsolved problems that continue to challenge mathematicians.</p>
+                            <a href="#" class="btn btn--outline">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Math Card 3 -->
+                    <div class="math__card">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Geometry" class="math__card-image">
+                        <div class="math__card-content">
+                            <h3 class="math__card-title">Fractal Geometry</h3>
+                            <p class="math__card-text">Where art meets mathematics in infinite complexity. Exploring self-similar patterns from coastlines to financial markets.</p>
+                            <a href="#" class="btn btn--outline">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    <!--==================== FOOTER ====================-->
+    {% include footer.html %}
+
+  <!-- Main JavaScript -->
+  <script src="/assets/scripts/main.js"></script>
+</body>
+</html>
