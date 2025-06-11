@@ -1,0 +1,28 @@
+/* Number Theory Page Styles */
+.number-theory {
+  padding: calc(var(--header-height) + var(--space-md)) 0 var(--space-xl);
+  
+  .container {
+    max-width: 900px;
+  }
+}
+
+.theory-card {
+  background-color: var(--ivory-cream);
+  border-radius: var(--radius-medium);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  box-shadow: var(--soft-shadow);
+  transition: var(--transition-medium);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--elevated-shadow);
+  }
+}
+
+.theory-content {
+  margin-top: var(--space-sm);
+  color: var(--walnut-brown);
+  line-height: 1.7;
+}
