@@ -1,25 +1,84 @@
----
-layout: default
-title: Number Theory
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Theory | EBOD</title>
+  
+  <!-- Dark Academia CSS -->
+  <style>
+    :root {
+      --ivory-cream: #F5F0E6;
+      --parchment: #E8DFD5;
+      --sage-green: #7A9B4D;
+      --walnut-brown: #6B5C4D;
+      --mahogany: #3D2E26;
+    }
+    
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background: var(--ivory-cream);
+      color: var(--mahogany);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    h1 {
+      color: var(--mahogany);
+      border-bottom: 2px solid var(--sage-green);
+      padding-bottom: 0.5rem;
+    }
+    
+    .mathjax {
+      background: var(--parchment);
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+    }
+  </style>
+  
+  <!-- MathJax -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+</head>
 
-<main class="main">
-  <section class="section">
-    <div class="container">
-      <h1>Number Theory</h1>
-      
-      <div class="content">
-        <p>Exploring the beauty of prime numbers and modular arithmetic.</p>
-        
-        <div class="mathjax">
-          The prime counting function: $$\pi(x) \sim \frac{x}{\ln x}$$
-        </div>
-        
-        <h2>Modular Arithmetic</h2>
-        <div class="mathjax">
-          Fermat's Little Theorem: $$a^{p-1} \equiv 1 \pmod{p}$$
-        </div>
-      </div>
+<body>
+  <!-- Navigation will be inserted here -->
+  <div data-include="/includes/nav.html"></div>
+  
+  <div class="container">
+    <h1>Number Theory</h1>
+    
+    <p>Exploring the beauty of prime numbers and modular arithmetic.</p>
+    
+    <div class="mathjax">
+      The prime counting function: $$\pi(x) \sim \frac{x}{\ln x}$$
     </div>
-  </section>
-</main>
+    
+    <h2>Modular Arithmetic</h2>
+    <div class="mathjax">
+      Fermat's Little Theorem: $$a^{p-1} \equiv 1 \pmod{p}$$
+    </div>
+  </div>
+
+  <!-- Include the navigation script -->
+  <script src="/assets/scripts/main.js"></script>
+</body>
+</html>
