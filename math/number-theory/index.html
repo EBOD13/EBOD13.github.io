@@ -2,78 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Number Theory | EBOD</title>
-  
-  <!-- Dark Academia CSS -->
-  <style>
-    :root {
-      --ivory-cream: #F5F0E6;
-      --parchment: #E8DFD5;
-      --sage-green: #7A9B4D;
-      --walnut-brown: #6B5C4D;
-      --mahogany: #3D2E26;
-    }
-    
-    body {
-      font-family: 'Cormorant Garamond', serif;
-      background: var(--ivory-cream);
-      color: var(--mahogany);
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-    
-    h1 {
-      color: var(--mahogany);
-      border-bottom: 2px solid var(--sage-green);
-      padding-bottom: 0.5rem;
-    }
-    
-    .mathjax {
-      background: var(--parchment);
-      padding: 1rem;
-      border-radius: 8px;
-      margin: 1.5rem 0;
-      overflow-x: auto;
-    }
-  </style>
-  
-  <!-- MathJax -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- MathJax for LaTeX -->
   <script>
     MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Number Theory</h1>
-    
-    <p>Exploring the beauty of prime numbers and modular arithmetic.</p>
-    
-    <div class="mathjax">
-      The prime counting function: $$\pi(x) \sim \frac{x}{\ln x}$$
-    </div>
-    
-    <h2>Modular Arithmetic</h2>
-    <div class="mathjax">
-      Fermat's Little Theorem: $$a^{p-1} \equiv 1 \pmod{p}$$
-    </div>
-  </div>
+  {% include nav.html %}
+
+  <main class="main">
+    <!-- ==================== NUMBER THEORY PAGE ==================== -->
+    <section class="math section" id="math-books">
+      <div class="math__container container">
+        <div class="math__header">
+          <h2 class="math__title">Number Theory Book Library</h2>
+          <p class="math__subtitle">Explore solved problems from major number theory texts</p>
+        </div>
+        
+        <div class="math__grid">
+          <!-- Book Card 1 -->
+          <div class="math__card">
+            <img src="https://covers.openlibrary.org/b/isbn/9780073383149-L.jpg" alt="Burton's Number Theory" class="math__card-image">
+            <div class="math__card-content">
+              <h3 class="math__card-title">Elementary Number Theory</h3>
+              <p class="math__card-text">by David M. Burton</p>
+              <a href="/books/burton-elementary-number-theory.html" class="btn btn--outline">View Solutions</a>
+            </div>
+          </div>
+
+          <!-- Add more book tiles here later -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {% include footer.html %}
+  <script src="/assets/scripts/main.js"></script>
 </body>
 </html>
