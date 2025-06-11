@@ -1,16 +1,27 @@
 ---
 layout: default
-title: Number Theory
+title: Number Theory Library
+permalink: /math/number-theory
 ---
 
-<section class="theory-section">
-  <div class="container">
-    <h1>Number Theory</h1>
-    <p>Content about primes, modular arithmetic, etc. goes here...</p>
-    
-    <!-- Example math content -->
-    <div class="mathjax">
-      The prime number theorem: $$\pi(x) \sim \frac{x}{\ln x}$$
+<section class="math section">
+  <div class="math__container container">
+    <div class="math__header">
+      <h2 class="math__title">Number Theory Books</h2>
+      <p class="math__subtitle">Books containing solved problems in Number Theory</p>
     </div>
+
+    <div class="math__grid">
+      <!-- Book Card -->
+      <div class="math__card">
+        <img src="https://covers.openlibrary.org/b/isbn/9780073383149-L.jpg" alt="Elementary Number Theory" class="math__card-image">
+        <div class="math__card-content">
+          <h3 class="math__card-title">Elementary Number Theory</h3>
+          <p class="math__card-text">by David M. Burton</p>
+          <a href="/books/burton-elementary-number-theory" class="btn btn--outline">View Solutions</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
