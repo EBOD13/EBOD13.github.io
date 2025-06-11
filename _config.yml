@@ -3,6 +3,9 @@ kramdown:
   math_engine: mathjax # Explicitly enable math support
   syntax_highlighter: rouge # For code highlighting
 
+theme: minima
+include:
+  - _includes
 # Optional but recommended for GH Pages
 plugins:
   - jekyll-feed
@@ -13,3 +16,4 @@ title: Daniel's Portfolio
 description: My website
 baseurl: "" # e.g., "/blog" if hosted at username.github.io/blog
 url: "" # e.g., "https://yourusername.github.io"
+
