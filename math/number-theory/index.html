@@ -35,7 +35,11 @@
 </head>
 
 <body>
-  {% include nav.html %}
+  <script>
+  fetch('/includes/nav.html')
+    .then(r => r.text())
+    .then(html => document.body.insertAdjacentHTML('afterbegin', html));
+</script>
 
 <main class="main">
         <!--==================== HERO ====================-->
@@ -90,7 +94,7 @@
                 </div>
             </div>
         </section>
-        
+
     <!--==================== FOOTER ====================-->
     {% include footer.html %}
 
