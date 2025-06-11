@@ -844,3 +844,45 @@ img {
         text-align: center;
     }
 }
+
+/* ======= BOOK LIBRARY SECTION ======== */
+.math__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.math__card {
+  background-color: #fdfcf8;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  border: 1px solid #ded6c4;
+}
+
+.math__card:hover {
+  transform: translateY(-5px);
+}
+
+.math__card-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.math__card-content {
+  padding: 1.25rem;
+}
+
+.math__card-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.math__card-text {
+  font-size: 1rem;
+  color: #4d4d4d;
+}

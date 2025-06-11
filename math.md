@@ -1,75 +1,26 @@
 ---
 layout: default
-title: Math Problems
-permalink: /math/
+title: Mathematics Library
+permalink: /math/number-theory"
 ---
 
-# Math Problems
-
-## Inductive Proof 1
-
-Prove:  
-$$1\cdot2 + 2\cdot3+ 3\cdot4 + \dots + n(n+1) = \frac{n(n+1)(n+2)}{3}$$ for all $$n \ge 1$$.
-
-### Base Case
-
-For $$n=1$$:
-$$1(1+1) = \frac{1(1+1)(1+2)}{3}$$
-$$2 = \frac{6}{3}$$
-$$2 = 2$$
-
-Hence, the base case holds.
-
-### Inductive Hypothesis
-
-Assume the formula holds for some $$k \ge 1$$:
-$$1\cdot2 + 2\cdot3 + \dots + k(k+1) = \frac{k(k+1)(k+2)}{3}$$
-
-### Inductive Step
-
-We must show it holds for $$k+1$$:
-$$1\cdot2 + 2\cdot3 + \dots + k(k+1) + (k+1)(k+2) = \frac{(k+1)(k+2)(k+3)}{3}$$
-
-Starting with the left side:
-$$\frac{k(k+1)(k+2)}{3} + (k+1)(k+2)$$
-$$= \frac{k(k+1)(k+2) + 3(k+1)(k+2)}{3}$$
-$$= \frac{(k+1)(k+2)(k + 3)}{3}$$
-
-Which matches the right side. Therefore, by induction, the formula holds for all $$n \ge 1$$.
-
-## Inductive Proof 2
-
-Prove:
-$$1^2 + 3^2 + 5^2 + \dots + (2n-1)^2 = \frac{n(2n-1)(2n+1)}{3}$$ for all $$n \ge 1$$.
-
-### Base Case
-
-For $$n=1$$:
-$$(2\cdot1-1)^2 = \frac{1(2\cdot1-1)(2\cdot1+1)}{3}$$
-$$1 = \frac{1 \cdot 1 \cdot 3}{3}$$
-$$1 = 1$$
-
-Base case holds.
-
-### Inductive Hypothesis
-
-Assume for some $$k \ge 1$$:
-$$1^2 + 3^2 + \dots + (2k-1)^2 = \frac{k(2k-1)(2k+1)}{3}$$
-
-### Inductive Step
-
-Show for $$k+1$$:
-$$1^2 + 3^2 + \dots + (2k-1)^2 + (2(k+1)-1)^2 = \frac{(k+1)(2(k+1)-1)(2(k+1)+1)}{3}$$
-
-Simplify the right side:
-$$\frac{(k+1)(2k+1)(2k+3)}{3}$$
-
-Starting with the left side:
-$$\frac{k(2k-1)(2k+1)}{3} + (2k+1)^2$$
-$$= \frac{k(2k-1)(2k+1) + 3(2k+1)^2}{3}$$
-$$= \frac{(2k+1)[k(2k-1) + 3(2k+1)]}{3}$$
-$$= \frac{(2k+1)(2k^2 - k + 6k + 3)}{3}$$
-$$= \frac{(2k+1)(2k^2 + 5k + 3)}{3}$$
-$$= \frac{(2k+1)(k+1)(2k+3)}{3}$$
-
-Which matches the simplified right side. Therefore, by induction, the formula holds for all $$n \ge 1$$.
+<section class="math section">
+  <div class="math__container container">
+    <div class="math__header">
+      <h2 class="math__title">Math Problem Solving Library</h2>
+      <p class="math__subtitle">A curated collection of books with detailed problem walkthroughs</p>
+    </div>
+    
+    <div class="math__grid">
+      <!-- Book Card 1 -->
+      <div class="math__card">
+        <img src="https://covers.openlibrary.org/b/isbn/9780073383149-L.jpg" alt="Elementary Number Theory by Burton" class="math__card-image">
+        <div class="math__card-content">
+          <h3 class="math__card-title">Elementary Number Theory</h3>
+          <p class="math__card-text">David M. Burton</p>
+          <a href="/books/burton-elementary-number-theory/" class="btn btn--outline">View Solutions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
