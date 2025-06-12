@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/style.css" />
+
+    <!-- Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!--=============== GOOGLE FONTS ===============-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+          processEscapes: true,
+        },
+        options: {
+          skipHtmlTags: [
+            "script",
+            "noscript",
+            "style",
+            "textarea",
+            "pre",
+            "code",
+          ],
+        },
+      };
+    </script>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <script>
+      // Load nav first, then init scripts
+      fetch("/_includes/nav.html")
+        .then((r) => r.text())
+        .then((html) => {
+          document.body.insertAdjacentHTML("afterbegin", html);
+          // Initialize navigation after it's loaded
+          initNavigation();
+        })
+        .catch((err) => console.error("Error loading navigation:", err));
+    </script>
+
+    <div class="resume">
+      <div class="contact-info">
+        <h1>BRIDA ESAMBU</h1>
+        <p>
+          <a href="mailto:oleakabrida@gmail.com">oleakabrida@gmail.com</a> |
+          405-934-5868 |
+          <a href="http://www.linkedin.com/in/daniel-esambu" target="_blank"
+            >linkedin.com/in/daniel-esambu</a
+          >
+          |
+          <a href="https://github.com/EBOD13" target="_blank"
+            >github.com/EBOD13</a
+          >
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <h2>EDUCATION</h2>
+        <div>
+          <span class="degree">M.S. Computer Science</span>,
+          <span class="school">The University of Oklahoma</span>
+          <span class="date">Aug 2024 — May 2027</span>
+        </div>
+        <div>
+          <span class="degree">B.S. Computer Science</span>,
+          <span class="school">The University of Oklahoma</span>
+          <span class="date">Aug 2022 — May 2026</span>
+        </div>
+        <div>
+          <span class="degree">B.A. Mathematics</span>,
+          <span class="school">The University of Oklahoma</span>
+          <span class="date">Jan 2024 — May 2026</span>
+        </div>
+        <ul>
+          <li>
+            Data Science and Analytics Undergraduate Certificate, <em>GPA</em>:
+            3.59
+          </li>
+          <li>
+            <em>Coursework</em>: Software Engineering, Data Structures, Intro to
+            Operating Systems, ML for Data Science, Cyber Attacks and Defenses
+          </li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <h2>CERTIFICATIONS</h2>
+        <ul>
+          <li><strong>CompTIA Security+</strong> Aug 2024</li>
+          <li><strong>Google Cybersecurity</strong> Jul 2024</li>
+          <li><strong>IBM Full Stack Software Developer</strong> Jul 2024</li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <h2>TECHNICAL SKILLS</h2>
+        <div class="skills-list">
+          <div class="skills-category">
+            <strong>Languages</strong>
+            Java, Python, C/C++, SQL (MySQL), JavaScript, HTML/CSS, R, Bash,
+            Dart, PowerShell
+          </div>
+          <div class="skills-category">
+            <strong>Tools & Platforms</strong>
+            React, Node.js, Flask, Django, Flutter, Docker, Kubernetes, Jira,
+            Code Reviews, Agile Methodologies, CI/CD, AWS, Google Cloud Platform
+            (GCP), Firebase, Git, GitHub, Cloud Computing, PyCharm, VS Code,
+            Google Colab, Jupyter, TensorFlow
+          </div>
+          <div class="skills-category">
+            <strong>DevOps & Security</strong>
+            Metasploit, Nmap SIEM Tools, Network Scanning, Threat Modeling,
+            Incident Response, Risk & Vulnerability
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <h2>WORK EXPERIENCE</h2>
+        <div>
+          <span class="job-title">Software Development Intern</span>, Norman, OK
+          <span class="date">Jan 2025 — May 2025</span>
+          <div class="company">
+            Ronnie K. Irani Center for the Creation of Economic Wealth
+          </div>
+          <ul>
+            <li>
+              Created a cross-platform Flutter for an emergency response startup
+              in collaboration with 3 software and 4 business interns.
+            </li>
+            <li>
+              Implemented secure authentication using email, Google OAuth, and
+              biometric sign-in via Firebase and native device APIs, enhancing
+              both security and user experience.
+            </li>
+            <li>
+              Designed scalable architecture and used AI debugging to accelerate
+              prototyping and reduce bugs.
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 20px">
+          <span class="job-title">Research Assistant — Data Analyst</span>,
+          Norman, OK
+          <span class="date">Jan 2025 — Present</span>
+          <div class="company">
+            OU Gallogly College of Engineering — Engineering Dean
+          </div>
+          <ul>
+            <li>
+              Automated statistical analysis workflows, reducing manual
+              processing time by <strong>50%+</strong> for large research
+              datasets.
+            </li>
+            <li>
+              Integrated AI-based tools to optimize data parsing and debugging
+              processes, enhancing research efficiency across large datasets.
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 20px">
+          <span class="job-title">IT Support Technician</span>, Norman, OK
+          <span class="date">Aug 2023 — Jan 2025</span>
+          <div class="company">OU Information Technology Learning Spaces</div>
+          <ul>
+            <li>
+              Managed technical support for over 150 classrooms and 20 labs,
+              driving a 20% increase in network uptime through proactive
+              maintenance.
+            </li>
+            <li>
+              Reduced average ticket resolution time by 41% by implementing
+              systematic troubleshooting and fostering effective team
+              collaboration.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <h2>RESEARCH EXPERIENCE</h2>
+        <div>
+          <span class="job-title">Undergraduate Math Researcher</span>, Norman,
+          OK
+          <span class="date">Jan 2025 — Present</span>
+          <div class="company">The University of Oklahoma</div>
+          <ul>
+            <li>
+              Assessing the impact of student math identity on academic
+              performance while using AI NLP models to classify interview
+              responses.
+            </li>
+            <li>
+              Developed methodologies to assess how inclusive teaching practices
+              reshape student self-efficacy and drive improved outcomes in
+              mathematics and related academic subjects.
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 20px">
+          <span class="job-title">Security Undergraduate Research</span>,
+          Norman, OK
+          <span class="date">Jan 2025 — Present</span>
+          <div class="company">The University of Oklahoma</div>
+          <ul>
+            <li>
+              Conducting multimodal AI research to classify phishing emails,
+              using vision-language models to detect image-embedded threats.
+            </li>
+            <li>
+              Automated email rendering and metadata extraction to analyze leak
+              vectors and develop robust threat mitigation strategies.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <h2>PROJECTS</h2>
+        <div>
+          <span class="project-title">PhishShield-AI</span>,
+          <span class="project-tech"
+            >Personal | Python, Flask, Hugging Face, Threat Intelligence
+            APIs</span
+          >
+          <span class="date">March 2025 — Present</span>
+          <ul>
+            <li>
+              Developed an AI-powered Chrome extension that utilizes advanced
+              threat intelligence and a fine-tuned Random Forest classifier to
+              detect email phishing with an 85% accuracy improvement.
+            </li>
+            <li>
+              Integrated real-time security feeds from VirusTotal and URLHaus,
+              enabling proactive mitigation of emerging phishing threats.
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 20px">
+          <span class="project-title">Personal Voice Assistant</span>,
+          <span class="project-tech">Personal | Python, Google Gemini API</span>
+          <span class="date">May 2024 — Jul 2024</span>
+          <ul>
+            <li>
+              Built a hands-free voice assistant for Spotify using Google Gemini
+              API and STT with advanced intent recognition.
+            </li>
+            <li>
+              Applied advanced NLP intent recognition to improve voice command
+              accuracy and execution reliability.
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 20px">
+          <span class="project-title">Headington Portal</span>,
+          <span class="project-tech"
+            >Personal | MongoDB, Express, React, Node.js</span
+          >
+          <span class="date">Oct 2023 — Jul 2024</span>
+          <ul>
+            <li>
+              Designed and implemented a secure check-in/out system featuring
+              JWT authentication, resulting in a 50% reduction in checkout time.
+            </li>
+            <li>
+              Enhanced system responsiveness through automated notifications and
+              real-time occupancy updates, supporting overall management.
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 20px">
+          <span class="project-title">Chatbot for Degree Requirements</span>,
+          <span class="project-tech">HackTexas Austin</span>
+          <span class="date">20 — 21 Oct 2023</span>
+          <ul>
+            <li>
+              Collaborated with a cross-functional team to develop a GPT-3.5
+              Turbo-powered chatbot that guides CS students through degree
+              requirements and course planning, leveraging LlamaIndex for
+              personalized, real-time recommendations.
+            </li>
+            <li>
+              Designed a dynamic, context-driven interface with Streamlit to
+              enhance user engagement during peak enrollment periods.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <h2>EXTRACURRICULAR, HONORS AND AWARDS</h2>
+        <ul>
+          <li>
+            <strong>Google Developer Club</strong> — Vice President — Leading
+            initiatives to foster technical skills and community engagement.
+          </li>
+          <li>
+            <strong>Microsoft TEALS Volunteer</strong> — Guided teachers in
+            effectively delivering impactful computer science lessons.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      fetch("/_includes/footer.html")
+        .then((r) => r.text())
+        .then((html) => document.body.insertAdjacentHTML("beforeend", html));
+    </script>
+    <script src="/assets/scripts/main.js"></script>
+  </body>
+</html>
