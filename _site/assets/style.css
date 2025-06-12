@@ -893,7 +893,7 @@ img {
 
 .resume .contact-info {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 5rem;
     margin-bottom: 10px;
     font-size: 1.1em;
 }
@@ -986,7 +986,7 @@ img {
 
 @media (max-width: 768px) {
     .resume {
-        padding: 20px;
+        padding: 24px 1.5rem;
     }
     
     .resume .date {
@@ -997,6 +997,12 @@ img {
     
     .resume .skills-category {
         min-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .resume {
+        padding: 20px 1rem;
     }
 }
 
