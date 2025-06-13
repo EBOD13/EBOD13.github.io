@@ -428,6 +428,7 @@ img {
 }
 
 .math__title {
+    margin-top: 5rem;
     font-size: 2.5rem;
     color: var(--mahogany);
 }
