@@ -1,41 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Number Theory | EBOD</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="/assets/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Number Theory | EBOD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/style.css" />
 
-  <!--=============== GOOGLE FONTS ===============-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
 
-  <!-- MathJax -->
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    };
-  </script>
-  <script id="MathJax-script" async 
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-  </script>
-</head>
+    <!--=============== GOOGLE FONTS ===============-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-<body>
-  <!-- Navigation -->
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+          processEscapes: true,
+        },
+        options: {
+          skipHtmlTags: [
+            "script",
+            "noscript",
+            "style",
+            "textarea",
+            "pre",
+            "code",
+          ],
+        },
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+    ></script>
+  </head>
+
+  <body>
+    <!-- Navigation -->
     <script>
       // Load nav first, then init scripts
       fetch("/_includes/nav.html")
@@ -48,76 +69,108 @@
         .catch((err) => console.error("Error loading navigation:", err));
     </script>
 
-  <main class="main">
-    <!--==================== NUMBER THEORY ====================-->
-    <section class="math section">
-      <div class="math__container container">
-        <div class="math__header">
-          <h2 class="math__title">Number Theory</h2>
-          <p class="math__subtitle">The queen of mathematics, studying integers and their profound patterns</p>
-        </div>
-        
-        <div class="math__grid">
-          <!-- Book Card 1 -->
-          <div class="math__card">
-            <img src="https://covers.openlibrary.org/b/isbn/9780073383149-L.jpg" alt="Elementary Number Theory by Burton" class="math__card-image">
-            <div class="math__card-content">
-              <h3 class="math__card-title">Elementary Number Theory</h3>
-              <p class="math__card-text">Exploring primes, congruences, and Fermat's legacy through David Burton's classic text.</p>
-              <a href="/math/number-theory/burton" class="btn btn--outline">View Solutions</a>
-            </div>
+    <main class="main">
+      <!--==================== NUMBER THEORY ====================-->
+      <section class="math section">
+        <div class="math__container container">
+          <div class="math__header">
+            <h2 class="math__title">Number Theory</h2>
+            <p class="math__subtitle">
+              The queen of mathematics, studying integers and their profound
+              patterns
+            </p>
           </div>
-          
-          <!-- Book Card 2 -->
-          <div class="math__card">
-            <img src="https://m.media-amazon.com/images/I/41XOXNX+8VL._SY425_.jpg" alt="Introduction to Analytic Number Theory by Apostol" class="math__card-image">
-            <div class="math__card-content">
-              <h3 class="math__card-title">Analytic Number Theory</h3>
-              <p class="math__card-text">Delving into zeta functions and prime distribution via Apostol's rigorous approach.</p>
-              <a href="/math/number-theory/apostol" class="btn btn--outline">View Solutions</a>
-            </div>
-          </div>
-          
-          <!-- Book Card 3 -->
-          <div class="math__card">
-            <img src="https://m.media-amazon.com/images/I/51Q4X4+QJ5L._SY425_.jpg" alt="A Classical Introduction to Modern Number Theory by Ireland & Rosen" class="math__card-image">
-            <div class="math__card-content">
-              <h3 class="math__card-title">Modern Number Theory</h3>
-              <p class="math__card-text">Bridging classical problems with contemporary methods in this comprehensive guide.</p>
-              <a href="/math/number-theory/ireland-rosen" class="btn btn--outline">View Solutions</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- Footer -->
-  <script>
-    fetch('/_includes/footer.html')
-      .then(r => r.text())
-      .then(html => document.body.insertAdjacentHTML('beforeend', html));
-  </script>
+          <div class="math__grid">
+            <!-- Book Card 1 -->
+            <div class="math__card">
+              <img
+                src="https://covers.openlibrary.org/b/isbn/9780073383149-L.jpg"
+                alt="Elementary Number Theory by Burton"
+                class="math__card-image"
+              />
+              <div class="math__card-content">
+                <h3 class="math__card-title">Elementary Number Theory</h3>
+                <p class="math__card-text">
+                  Exploring primes, congruences, and Fermat's legacy through
+                  David Burton's classic text.
+                </p>
+                <a href="/math/number-theory/burton" class="btn btn--outline"
+                  >View Solutions</a
+                >
+              </div>
+            </div>
 
-  <!-- Main JavaScript -->
-  <script src="/assets/scripts/main.js"></script>
-  
-  <!-- Card Animation Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const cards = document.querySelectorAll('.math__card');
-      
-      cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'all 0.6s ease';
-        
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, 100 * index);
+            <!-- Book Card 2 -->
+            <div class="math__card">
+              <img
+                src="https://m.media-amazon.com/images/I/41XOXNX+8VL._SY425_.jpg"
+                alt="Introduction to Analytic Number Theory by Apostol"
+                class="math__card-image"
+              />
+              <div class="math__card-content">
+                <h3 class="math__card-title">Analytic Number Theory</h3>
+                <p class="math__card-text">
+                  Delving into zeta functions and prime distribution via
+                  Apostol's rigorous approach.
+                </p>
+                <a href="/math/number-theory/apostol" class="btn btn--outline"
+                  >View Solutions</a
+                >
+              </div>
+            </div>
+
+            <!-- Book Card 3 -->
+            <div class="math__card">
+              <img
+                src="https://m.media-amazon.com/images/I/51Q4X4+QJ5L._SY425_.jpg"
+                alt="A Classical Introduction to Modern Number Theory by Ireland & Rosen"
+                class="math__card-image"
+              />
+              <div class="math__card-content">
+                <h3 class="math__card-title">Modern Number Theory</h3>
+                <p class="math__card-text">
+                  Bridging classical problems with contemporary methods in this
+                  comprehensive guide.
+                </p>
+                <a
+                  href="/math/number-theory/ireland-rosen"
+                  class="btn btn--outline"
+                  >View Solutions</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <script>
+      fetch("/_includes/footer.html")
+        .then((r) => r.text())
+        .then((html) => document.body.insertAdjacentHTML("beforeend", html));
+    </script>
+
+    <!-- Main JavaScript -->
+    <script src="/assets/scripts/main.js"></script>
+
+    <!-- Card Animation Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".math__card");
+
+        cards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(20px)";
+          card.style.transition = "all 0.6s ease";
+
+          setTimeout(() => {
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, 100 * index);
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>

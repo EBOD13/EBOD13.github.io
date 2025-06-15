@@ -23,7 +23,7 @@
 .da-header {
   background-color: var(--mahogany);
   color: var(--parchment);
-  padding: 3rem 2rem;
+  padding: 1.5rem 2rem;
   text-align: center;
   border-bottom: 3px solid var(--gold-leaf);
 }

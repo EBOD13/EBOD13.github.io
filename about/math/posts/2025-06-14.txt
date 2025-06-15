@@ -1,4 +1,4 @@
-Title: On the Nature of Prime Numbers
+Title: What Are Prime Numbers?
 Tag: Number Theory
 
 Number theory, as defined by Duke University* and Brown University's* Department of Mathematics, is the study of positive whole numbers and associated objects. Number theorists study a variety of topics within this discipline of pure mathematics*, some of which extend beyond our current understanding of complex and real numbers. To gain a deeper understanding of number theory, number theorists often need also study other fields such as graph theory, abstract algebra, and other topics of mathematics that few people are familiar with, unless they have taken higher level math classes, done further research or watched 3Blue1Brown or Veritasium videos on YouTube (just to name a few).

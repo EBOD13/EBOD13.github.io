@@ -3,19 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scriptorium Mathematica</title>
+    <title>Math Blog</title>
+    <!-- Styles -->
     <link rel="stylesheet" href="/assets/css/blog_style.css" />
+    <link rel="stylesheet" href="/assets/style.css" />
+
+    <!-- Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <!-- Allow LaTex -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [["$$", "$$"]],
+        },
+        svg: { fontCache: "global" },
+      };
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
+      async
+    ></script>
   </head>
   <body class="math-page">
+    <!-- Navigation -->
+    <script>
+      // Load nav first, then init scripts
+      fetch("/_includes/nav.html")
+        .then((r) => r.text())
+        .then((html) => {
+          document.body.insertAdjacentHTML("afterbegin", html);
+          // Initialize navigation after it's loaded
+          initNavigation();
+        })
+        .catch((err) => console.error("Error loading navigation:", err));
+    </script>
     <header class="da-header">
-      <h1>Scriptorium Mathematica</h1>
-      <p class="subtitle">A Scholarly Journal of Mathematical Contemplations</p>
+      <h1>Math Blog</h1>
+      <p class="subtitle">
+        A compilation of fascinating mathematical concepts and reflections
+      </p>
     </header>
 
     <main class="math-content">
