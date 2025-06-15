@@ -192,49 +192,96 @@ function includeHTML() {
 if (document.querySelector('[data-include]')) {
     includeHTML();
 }
-// ============== MOUNT BLOG POSTS ====================
+// ============== BLOG POST LOADER ====================
 const GITHUB_USER = "ebod13";
 const REPO_NAME = "ebod13.github.io";
-const POSTS_FOLDER = "about/math/posts"; // ← use exact path from GitHub
+const POSTS_FOLDER = "about/math/posts";
 
 async function loadPosts() {
   const postsContainer = document.getElementById("posts-container");
-  postsContainer.innerHTML = ''; // Clear existing posts first
-
+  const lastUpdatedEl = document.getElementById("last-updated");
+  
   try {
-    // Add timestamp to bypass cache
+    // Clear existing content
+    postsContainer.innerHTML = '';
+    
+    // Add cache-busting timestamp
     const timestamp = new Date().getTime();
-    const response = await fetch(
-      `https://api.github.com/repos/${GITHUB_USER}/${REPO_NAME}/contents/${POSTS_FOLDER}?t=${timestamp}`
-    );
-    if (!response.ok) throw new Error("Failed to fetch posts.");
-
+    const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${REPO_NAME}/contents/${POSTS_FOLDER}?t=${timestamp}`;
+    
+    const response = await fetch(apiUrl);
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    
     const files = await response.json();
+    let latestUpdate = '';
 
+    // Process each post
     for (const file of files) {
       if (file.name.endsWith(".txt")) {
-        // Add timestamp to file URL too
         const postResponse = await fetch(`${file.download_url}?t=${timestamp}`);
         const postContent = await postResponse.text();
-
-        const [firstLine, ...bodyLines] = postContent.split("\n");
-        const title = firstLine.replace("Title: ", "");
-        const body = bodyLines.join("\n");
-
-        const postElement = document.createElement("div");
-        postElement.className = "post";
+        
+        // Parse post content (first line = title, second line = tag)
+        const lines = postContent.split("\n");
+        const title = lines[0].replace("Title: ", "");
+        const tag = lines[1].replace("Tag: ", "");
+        const body = lines.slice(2).join("\n");
+        
+        // Track latest update date
+        if (file.name > latestUpdate) latestUpdate = file.name;
+        
+        // Create post element
+        const postElement = document.createElement("article");
+        postElement.className = "da-post";
         postElement.innerHTML = `
-          <h2>${title}</h2>
-          <div class="post-date">${file.name.replace(".txt", "")}</div>
-          <p>${body}</p>
+          <h2 class="post-title">${title}</h2>
+          <div class="post-meta">
+            <span class="post-date">${formatDate(file.name.replace(".txt", ""))}</span>
+            <span class="post-tag">${tag}</span>
+          </div>
+          <div class="post-content">${formatBody(body)}</div>
         `;
+        
         postsContainer.appendChild(postElement);
       }
     }
+    
+    // Set last updated time
+    if (latestUpdate) {
+      lastUpdatedEl.textContent = `Last updated: ${formatDate(latestUpdate.replace(".txt", ""))}`;
+    }
+
   } catch (error) {
     console.error("Error loading posts:", error);
-    postsContainer.innerHTML = "<p>Failed to load posts. Check console.</p>";
+    postsContainer.innerHTML = `
+      <article class="da-post">
+        <h2 class="post-title">Manuscript Error</h2>
+        <div class="post-content">
+          <p>The scribes could not retrieve the manuscripts. Please try again later.</p>
+          <p><em>${error.message}</em></p>
+        </div>
+      </article>
+    `;
   }
 }
 
-loadPosts();
+// Format date as "May 20, 2024"
+function formatDate(dateStr) {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString("en-US", { 
+    year: "numeric", 
+    month: "long", 
+    day: "numeric" 
+  });
+}
+
+// Convert plaintext to paragraphs
+function formatBody(text) {
+  return text.split("\n\n")
+    .filter(para => para.trim().length > 0)
+    .map(para => `<p>${para}</p>`)
+    .join("");
+}
+
+// Initialize when DOM is ready
+document.addEventListener("DOMContentLoaded", loadPosts);

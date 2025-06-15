@@ -3,34 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple TXT Blog</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-      .post {
-        margin-bottom: 40px;
-        padding: 20px;
-        border: 1px solid #eee;
-        border-radius: 8px;
-      }
-      .post h2 {
-        margin-top: 0;
-      }
-      .post-date {
-        color: #666;
-        font-size: 0.9em;
-      }
-    </style>
+    <title>Math Blog</title>
+    <link rel="stylesheet" href="/assets/css/blog_style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <h1>My Simple Blog</h1>
-    <div id="posts-container"></div>
+  <body class="math-page">
+    <header class="da-header">
+      <h1>Scriptorium Mathematica</h1>
+      <p class="subtitle">A Scholarly Journal of Mathematical Contemplations</p>
+    </header>
 
-    <!-- Load the script to fetch posts -->
+    <main class="math-content">
+      <div id="posts-container" class="da-posts"></div>
+      <div id="last-updated" class="last-updated"></div>
+    </main>
+
     <script src="/assets/scripts/main.js"></script>
   </body>
 </html>
