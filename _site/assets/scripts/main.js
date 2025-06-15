@@ -192,38 +192,32 @@ function includeHTML() {
 if (document.querySelector('[data-include]')) {
     includeHTML();
 }
-
 // ============== MOUNT BLOG POSTS ====================
-
-// Replace these with your GitHub username and repo name!
 const GITHUB_USER = "ebod13";
 const REPO_NAME = "ebod13.github.io";
-const POSTS_FOLDER = "posts"; // Folder where .txt files are stored
+const POSTS_FOLDER = "about/math/posts"; // ← use exact path from GitHub
 
 async function loadPosts() {
   const postsContainer = document.getElementById("posts-container");
-  
+
   try {
-    // Fetch the list of .txt files in the /posts/ folder
     const response = await fetch(
       `https://api.github.com/repos/${GITHUB_USER}/${REPO_NAME}/contents/${POSTS_FOLDER}`
     );
-    
     if (!response.ok) throw new Error("Failed to fetch posts.");
+
     const files = await response.json();
 
-    // Loop through each .txt file and display its content
     for (const file of files) {
       if (file.name.endsWith(".txt")) {
-        const postResponse = await fetch(file.download_url);
+        // Add cache-busting query param so changes show immediately
+        const postResponse = await fetch(`${file.download_url}?nocache=${Date.now()}`);
         const postContent = await postResponse.text();
-        
-        // Extract title (first line) and body (rest)
+
         const [firstLine, ...bodyLines] = postContent.split("\n");
         const title = firstLine.replace("Title: ", "");
         const body = bodyLines.join("\n");
 
-        // Create HTML for the post
         const postElement = document.createElement("div");
         postElement.className = "post";
         postElement.innerHTML = `
@@ -231,15 +225,13 @@ async function loadPosts() {
           <div class="post-date">${file.name.replace(".txt", "")}</div>
           <p>${body}</p>
         `;
-        
         postsContainer.appendChild(postElement);
       }
     }
   } catch (error) {
     console.error("Error loading posts:", error);
-    postsContainer.innerHTML = "<p>Failed to load posts. Check the console.</p>";
+    postsContainer.innerHTML = "<p>Failed to load posts. Check console.</p>";
   }
 }
 
-// Load posts when the page loads
 loadPosts();
