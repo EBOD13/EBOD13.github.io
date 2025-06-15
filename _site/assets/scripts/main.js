@@ -199,10 +199,13 @@ const POSTS_FOLDER = "about/math/posts"; // ← use exact path from GitHub
 
 async function loadPosts() {
   const postsContainer = document.getElementById("posts-container");
+  postsContainer.innerHTML = ''; // Clear existing posts first
 
   try {
+    // Add timestamp to bypass cache
+    const timestamp = new Date().getTime();
     const response = await fetch(
-      `https://api.github.com/repos/${GITHUB_USER}/${REPO_NAME}/contents/${POSTS_FOLDER}`
+      `https://api.github.com/repos/${GITHUB_USER}/${REPO_NAME}/contents/${POSTS_FOLDER}?t=${timestamp}`
     );
     if (!response.ok) throw new Error("Failed to fetch posts.");
 
@@ -210,8 +213,8 @@ async function loadPosts() {
 
     for (const file of files) {
       if (file.name.endsWith(".txt")) {
-        // Add cache-busting query param so changes show immediately
-        const postResponse = await fetch(`${file.download_url}?nocache=${Date.now()}`);
+        // Add timestamp to file URL too
+        const postResponse = await fetch(`${file.download_url}?t=${timestamp}`);
         const postContent = await postResponse.text();
 
         const [firstLine, ...bodyLines] = postContent.split("\n");
