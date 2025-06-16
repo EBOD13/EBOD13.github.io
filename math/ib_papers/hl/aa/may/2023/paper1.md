@@ -2,7 +2,7 @@
 
 ## Question 1
 
-**Content:** The function $f$ is defined by $f(x) = \frac{7x+7}{2x-4}$ for $x \in \mathbb{R},\, x \ne 2.$
+**Content:** The function $f$ is defined by $f(x) = \frac{7x+7}{2x-4}$ for $x \in \mathbb{R}\, x \ne 2.$
 
 (a) Find the zero of $f(x)$  
 (b) For the graph of $y = f(x)$, write down the equation of  
@@ -86,4 +86,30 @@ It is known that 1000 visitors will attend the amusement park on Tuesday. The Dr
 
 **Solution:**
 
-<p style="text-align: center;">Coming soon!</p>
+Use the trig identity $cos2x = 1 - sin^{2}x$
+$$cos2x = 1 - sin^{2}x = sinx$$
+Bring all the terms on one side:
+$$2sin^{2}x + sinx -1 = 0$$
+Use abstraction! Let $y=sin^{2}x$ and solve the quadratic:
+$$2y^2 + y -1 = 0$$
+Factorize and solve for y:
+$$(2y - 1)(y + 1) = 0$$
+
+The bounds from $-\pi$ to $\pi$ cover the entire unit circle, just like going from $0$ to $2\pi$, but they start on the left side instead of the right. The only difference is how we label the angles — for example, instead of $\frac{3\pi}{2}$, we say $-\frac{\pi}{2}$ as we are going counterclockwise from the left (where $\pi$ normally is). Thus we have:
+
+$$ (a) \ 2y = 1 \Rightarrow y = \frac{1}{2} \Rightarrow sinx = \frac{1}{2}$$
+$$x = sin^{-1}\left(\frac{1}{2}\right)$$
+
+$$
+x = \left(\frac{\pi}{6}, \frac{5\pi}{6}\right)
+$$
+
+$$ (b) \ y = -1 \Rightarrow sinx = -1 \Rightarrow x = sin^{-1}$$
+$$ x = \frac{-\pi}{2}$$
+
+<div style="text-align: center;">
+<div style="position: relative; display: inline-block;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Unit_circle_angles_color.svg" style="width: 300px;">
+
+</div>
+</div>
