@@ -6,6 +6,7 @@ kramdown:
 theme: minima
 include:
   - _includes
+  - assets
 # Optional but recommended for GH Pages
 plugins:
   - jekyll-feed

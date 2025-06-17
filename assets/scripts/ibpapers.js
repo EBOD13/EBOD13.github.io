@@ -182,3 +182,66 @@ function scrollSessions(direction) {
           }
         }
       });
+
+
+// =========== RENDER CANVAS ==============
+document.addEventListener("DOMContentLoaded", () => {
+  const canvas = document.getElementById('cartesianPlane');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  const width = canvas.width;
+  const height = canvas.height;
+  const originX = width / 2;
+  const originY = height / 2;
+  const scale = 40;
+
+  // Axes
+  ctx.beginPath();
+  ctx.moveTo(0, originY);
+  ctx.lineTo(width, originY);
+  ctx.moveTo(originX, 0);
+  ctx.lineTo(originX, height);
+  ctx.strokeStyle = 'black';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Grid
+  ctx.strokeStyle = '#eee';
+  ctx.lineWidth = 1;
+  for (let x = 0; x < width; x += scale) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, height);
+    ctx.stroke();
+  }
+  for (let y = 0; y < height; y += scale) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(width, y);
+    ctx.stroke();
+  }
+
+  const toCanvasCoords = (x, y) => ({
+    x: originX + x * scale,
+    y: originY - y * scale
+  });
+
+  const A = { x: 2, y: 3 };
+  const B = { x: -3, y: -1 };
+
+  const canvasA = toCanvasCoords(A.x, A.y);
+  ctx.beginPath();
+  ctx.arc(canvasA.x, canvasA.y, 5, 0, 2 * Math.PI);
+  ctx.fillStyle = 'red';
+  ctx.fill();
+  ctx.fillText(`A (${A.x}, ${A.y})`, canvasA.x + 10, canvasA.y - 10);
+
+  const canvasB = toCanvasCoords(B.x, B.y);
+  ctx.beginPath();
+  ctx.arc(canvasB.x, canvasB.y, 5, 0, 2 * Math.PI);
+  ctx.fillStyle = 'blue';
+  ctx.fill();
+  ctx.fillText(`B (${B.x}, ${B.y})`, canvasB.x + 10, canvasB.y - 10);
+});
+

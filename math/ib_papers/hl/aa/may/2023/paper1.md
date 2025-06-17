@@ -107,9 +107,70 @@ $$
 $$ (b) \ y = -1 \Rightarrow sinx = -1 \Rightarrow x = sin^{-1}$$
 $$ x = \frac{-\pi}{2}$$
 
+<b>Final answer</b>: $
+x = \left(\frac{\pi}{6}, \frac{5\pi}{6}, \frac{-\pi}{2}\right)
+$
+
 <div style="text-align: center;">
 <div style="position: relative; display: inline-block;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Unit_circle_angles_color.svg" style="width: 300px;">
 
 </div>
 </div>
+
+## Question 4
+
+**Content:** Find the range of possible values $k$ such that $e^{2x} +\ln{k} = 3e^x$ has at least one real solution.
+
+**Solution:**
+Bring all the terms on one side.
+$$ e^{2x} - 3e^x + \ln{k} = 0 $$
+
+Using abstraction, let $y = e^x$, therefore $y^2 = e^{2x}$
+
+$$ y^2 - 3y + \ln{k} = 0 $$
+
+Now, using the discriminant: $\sqrt{b^2 - 4ac}$
+Since we are looking for a real solution, we note that we have one real solution when $\sqrt{b^2 - 4ac} = 0$. And more when $\sqrt{b^2 - 4ac} > 0$.
+
+<br/>
+Therefore we need to solve for $$\sqrt{b^2 - 4ac} \ge 0$$
+
+Where:
+$a = 1 \, b = 3\, c = \ln{k} $
+
+$$\sqrt{3^2 - 4(1)(\ln{k})} \ge 0 \Rightarrow 9 - 4\ln{k} \ge 0$$
+
+Squaring and then adding $4\ln{k}$ on both sides:
+$$9 \ge 4\ln{k}$$
+Solve for $k$ by dividing both sides by 4 and then exponentiating:
+
+$$\frac{9}{4} \ge \ln{k}$$
+$$e^{\frac{9}{4}} \ge k$$
+
+<b>Final answer</b>: $0 < k \le e^{\frac{9}{4}}$
+
+## Question 5
+
+**Content:** The function $f$ is defined by $f(x) = \sin{qx}$, where $q > 0$. The following diagram shows part of the graph of $f$ for $0 \le x \le 4m$, where $x$ is in radians. There are $x$-intercepts at $x=0 \, 2m$ and $4m$.
+
+<div style="text-align: center;">
+  <img src="/assets/images/sin_graph.png" alt="Sine Graph" style="width: 400px; display: inline-block;">
+</div>
+
+(a) Find an expression for $m$ in terms of $q$.
+
+The function $g$ is defined by $g(x) = 3\sin{\frac{2qx}{3}}$, for $0 \le x \le 6m$.
+
+(b) On the axes above, sketch the graph of $g$.
+
+**Solution:**
+(a) Observe that it take the graph $4m$ to make a full oscillation (period). With this, we use to use the formula: $$\frac{2\pi}{b} = \text{period}$$
+
+Where $\text{period} = 4m \, \text{and} \ b=q$
+
+Hence we have:
+$$\frac{2\pi}{q} = 4m$$
+$$\frac{\pi}{2q} = m$$
+
+(b) Must use graphing calculator!
