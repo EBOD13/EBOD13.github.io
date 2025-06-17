@@ -207,7 +207,7 @@ To find the height, we draw an imaginary vertical line from the top vertex down 
 <div style="display: flex; gap: 10px; justify-content: center; align-items: flex-start;">
 
   <!-- First triangle: Equilateral -->
-  <svg width="200" height="280" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+  <svg width="150" height="220" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
     <!-- Triangle -->
     <polygon points="150,20 40,220 260,220" fill="none" stroke="black" stroke-width="2" />
     <text x="150" y="240" font-size="16" text-anchor="middle">x</text> <!-- Base -->
@@ -220,7 +220,7 @@ To find the height, we draw an imaginary vertical line from the top vertex down 
   </svg>
 
   <!-- Second triangle: 30°-60°-90° with height -->
-  <svg width="200" height="280" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+  <svg width="150" height="220" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
     <!-- Triangle -->
     <polygon points="150,20 40,220 260,220" fill="none" stroke="black" stroke-width="2" />
     <line x1="150" y1="20" x2="150" y2="220" stroke="black" stroke-width="1" stroke-dasharray="5,5" />
