@@ -278,3 +278,128 @@ $$\frac{dA}{dt} = \frac{\sqrt{3}}{4} \cdot 2x \frac{dx}{dt}$$
 $$\frac{dA}{dt} = \frac{\sqrt{3}}{4} \cdot 2(5\sqrt{3}) \cdot 4$$
 $$\frac{dA}{dt} = 3 \cdot 5 \cdot 2$$
 $$\frac{dA}{dt} = 30\text{cm}^2\text{s}^{-1}$$
+
+## Question 7
+
+**Content:** Consider $P(z) = 4m - mz + \frac{36}{m}z^2 - z^3$, where $z \in \mathbb{C}$ and $m \in \mathbb{R^+}$.
+
+Given that $z-3i$ is a factor of $P(z)$, find the roots of $P(z) = 0$
+
+**Solution:**
+This is a little tricky! But we've got this.
+We are told that $z-3i$ as a factor of the polynomial $P(z)$.
+This immediately tells us that $z = 3i$ is a **root** of the polynomial.
+Now, by the **Complex Conjugate Root Theorem**, we know that if a polynomial has **real coefficients**, then the **complex roots must occur in conjugate pairs**.
+Since $3i$ is a root, its complex conjugate $-3i$ must also be a root.
+
+Thus, both $z=3i$ and $z=-3i$ are roots of $P(z)$, and so both $z-3i$ and $z+3i$ are factors of the polynomial.
+
+This is amazing. Since we are told that $z−3i$ is a factor of the polynomial $P(z)$, and we’ve already deduced from the Complex Conjugate Root Theorem that $z+3i$ must also be a factor, that gives us two linear factors.
+
+Now, looking at the polynomial $P(z)$, we observe that it is a degree 3 polynomial. A degree 3 polynomial can have at most three linear factors (counting multiplicity).
+
+Therefore, we infer that there is a third factor—call it $(Az+B)$, which corresponds to a real root, since the first two roots $3i$ and $−3i$ are non-real and already form a conjugate pair.
+
+So, the general factored form of the polynomial is:
+
+$$P(z) = (z-3i)(z+3i)(Az+B)$$
+
+We simplify the first part:
+$$(z-3i)(z+3i) = (z^2+9)$$
+
+Hence:
+$$P(z) = (z^2+9)(Az+B)$$
+
+Expand and set equal to the original equation $P(z)$:
+
+$$(z^2+9)(Az+B) = 4m - mz + \frac{36}{m}z^2 - z^3$$
+
+$$Az^3+Bz^2+ 9Az + 9B = 4m - mz + \frac{36}{m}z^2 - z^3$$
+
+Observe the terms on both sides. Notice the coefficients of each terms:
+
+(1) $Az^3 = -z^3 \Rightarrow A = -1$
+
+(2) $9Az = -mz \Rightarrow 9A = -m$, From (1), $\Rightarrow -9z = -mz \Rightarrow m = 9$
+
+(3) $Bz^2 = \frac{36}{m}z^2 \Rightarrow B = \frac{36}{m}$, From (2), $B = \frac{36}{9} \Rightarrow B = 4$
+
+(4) $9B = 4m$, From (2), $\Rightarrow 9B = 4(9) \Rightarrow B = 4$ - Consistent with the above.
+
+Thus, we have our new factor:
+$$Az + B = -z + 4$$
+
+With root:
+$$z = 4$$
+
+Hence the roots are $$z = 3i \, -3i\, 4 $$
+
+## Question 8
+
+**Content:**
+
+**Solution:**
+
+## Question 9
+
+**Content:**
+
+**Solution:**
+
+## Question 10
+
+**Content:** Consider the arithmetic sequence $u_1, u_2, u_3,...$
+
+The sum of the first $n$ terms of this sequence is given by $S_n = n^2 + 4n$.
+
+(a) (i) Find the sum of the first five terms
+
+&nbsp;&nbsp;&nbsp;&nbsp;(ii) Given that $S_6 = 60$, find $u_6$.
+
+(b) Find $u_1$.
+
+(c) Hence or otherwise, write an expression for $u_n$ in terms of $n$.
+
+Consider a geometric sequence, $v_n$, where $v_2 = u_1$ and $v_4 = u_6$.
+
+(d) Find the possible values of the common ratio, $r$.
+
+(e) Given that $v_{99} < 0$, find $v_5$.
+
+**Solution:**
+(a)(i) Plug in 5 for $n$:
+$$S_5 = 5^2 + 4(5) = 25 + 20 = 45$$
+
+&nbsp;&nbsp;&nbsp;&nbsp;(ii) We know that $S_6 = 60$ and $S_5 = 45$. Finding $u_6$ is the difference between the two - aka, the number we last added to the sum:
+
+$$u_6 = S_6 - S_5 = 60 - 45 = 15$$
+
+(b) Finding $u_1$ is the same as finding the sum of the first number. Hence:
+$$u_1 = S_1$$
+$$u_1 = 1^2 + 4(1) \Rightarrow u_1 = 1+4 = 5$$
+
+(c) Since, we know that $u_1 = 5$, we can try to find the common difference $d$ in the sequence. There are a few ways to do that. One way is to use the arithmetic sum formula:
+
+$$S_n = \frac{n}{2}(2u_1+(n-1)d)$$
+
+Plug in $u_1 = 5$ and $S_n = 60$, for $n = 60$, then solve for $d$:
+
+$$S_n = \frac{6}{2}(2(5)+(6-1)d)$$
+$$ 60 = 3(10 + 5d) \Rightarrow 60 = 30 + 15d \Rightarrow = 15d = 30$$
+$$d = 2$$
+
+**Or**
+
+Find the sum of $n=2$:
+$$S_2 = 2^2 + 4(2) = 12$$
+
+Then: $$u_2 = S_2 - S_1 \Rightarrow u_2 = 12 - 5 = 7$$
+
+Now notice that the difference between $u_1$ and $u_2$ is 2, thus $d=2$.
+
+Finally, using the formula for the $n$th term of an arithmetic sequence (in the booklet on page 3):
+
+$$u_n = u_1 + (n-1)d$$
+
+Our expression for $u_n$ becomes:
+$$u_n = 5 + (n-1)\cdot 2$$
