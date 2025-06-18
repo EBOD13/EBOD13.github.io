@@ -87,7 +87,7 @@ It is known that 1000 visitors will attend the amusement park on Tuesday. The Dr
 **Solution:**
 
 Use the trig identity $cos2x = 1 - sin^{2}x$
-$$cos2x = 1 - sin^{2}x = sinx$$
+$$1 - $sin^{2}x = sinx$$
 Bring all the terms on one side:
 $$2sin^{2}x + sinx -1 = 0$$
 Use abstraction! Let $y=sin^{2}x$ and solve the quadratic:
