@@ -403,3 +403,99 @@ $$u_n = u_1 + (n-1)d$$
 
 Our expression for $u_n$ becomes:
 $$u_n = 5 + (n-1)\cdot 2$$
+
+## Question 11
+
+**Content:** Consider the following diagram, which shows the plan of part of a house.
+
+<div style="text-align: center;">
+  <img src="/assets/images/angle_house.png" alt="Sine Graph" style="width: 400px; display: inline-block;">
+</div>
+
+A narrow passageway with width $\frac{3}{4}$m is perpendicular to a room of width 6m. There is a corner point C. Points A and B are variable points on the base of the walls such that A, C and B lie on a straight line.
+
+Let $L$ denote the length AB in metres.
+
+Let $\alpha$ be the angle that [AB] makes with the room wall, where $0 < \alpha < \frac{\pi}{2}$.
+
+(a) Show that $L = \frac{3}{4}\sec{\alpha }+ 6\csc{\alpha}$.
+
+(b)&nbsp;&nbsp;&nbsp;&nbsp;(i) Find $\frac{dL}{d\alpha}$.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii) When $\frac{dL}{d\alpha} = 0$, show that $\alpha = \arctan2$.
+
+(c) &nbsp;&nbsp;&nbsp;&nbsp;(i) Find $\frac{d^{2}L}{d\alpha^2}$
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii) When $\alpha = \arctan 2$, show that $\frac{d^{2}L}{d\alpha^2} = \frac{45}{4}\sqrt{5}$.
+
+(d) &nbsp;&nbsp;&nbsp;&nbsp;(i) Hence, justify that L is a minimum when $\alpha = \arctan2$.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii) Determine the minimum value of $L$.
+
+Two people need to carry a pole of length 11.25 m from the passageway into the room.
+
+It must be carried horizontally.
+
+(e) Determine whether this is possible, giving a reason for your answer.
+**Solution:**
+(a) We will solve this in two steps. First, by analyzing the diagram, we observe that multiple triangles are formed by the intersecting lines. Let's focus on two of them.
+
+Let the **first triangle** be the one on the **right**, with the **side opposite to angle** $\alpha$ measuring **6 meters**.
+
+Next, consider the **second triangle** on the left. Imagine that the **horizontal line** passing through **point C** (which intersects segment AB) extends all the way to the **leftmost vertical line**. This forms another triangle to the left.
+
+Now, observe that the new angle created at the intersection — let’s call it $\alpha'$ — is directly **opposite** angle $\alpha$. These two angles share the same vertex and are formed by intersecting straight lines, which makes them **vertical angles** <a href="https://www.mathsisfun.com/geometry/parallel-lines.html" target = "_blank"><i><u>(read more here)</u></i></a>.
+
+By definition, vertical angles are equal, so:
+
+$$\alpha = \alpha'$$
+
+In this new triangle on the left, angle $\alpha'$ is known, and the adjacent side to this angle measures $\frac{3​}{4}$ meters.
+
+Now that we have everything we need, let’s find the total length of segment [AB].
+
+From the left triangle we constructed, we know that segment [AC] is a portion of [AB]. In that triangle, [AC] is the hypotenuse, and we are given:
+
+&nbsp;&nbsp;&nbsp;&nbsp;(1) Angle $\alpha$
+
+&nbsp;&nbsp;&nbsp;&nbsp;(2) The adjacent side to angle $\alpha$, which is $\frac{3}{4}$​m.
+
+Using SOH-CAH-TOA, we recall that for cosine:
+
+$$\cos(\alpha) = \frac{adjacent}{hypotenuse} = \frac{\frac{3}{4}}{AC} \Rightarrow \cos(\alpha) = \frac{3}{4} \cdot AC $$
+
+Solve for AC:
+
+$$
+AC = \frac{3}{4} \cdot \frac{1}{\cos(\alpha)}
+$$
+
+$$
+AC = \frac{3}{4} \sec(\alpha)
+$$
+
+Similarly, for the right triangle. We now have:
+
+&nbsp;&nbsp;&nbsp;&nbsp;(1) Angle $\alpha$
+
+&nbsp;&nbsp;&nbsp;&nbsp;(2) [CB] - hypotenuse
+
+&nbsp;&nbsp;&nbsp;&nbsp;(3) The opposite side to angle $\alpha$, which is 6m
+
+Using SOH-CAH-TOA, we recall that for sine:
+
+$$\sin(\alpha) = \frac{opposite}{hypotenuse} = \frac{6}{CB} $$
+$$CB = 6\frac{1}{\sin(\alpha)} $$
+$$CB = 6\csc(\alpha) $$
+
+Bringing everything together:
+
+$$AB = AC + BC \Rightarrow AB = \frac{3}{4} \sec(\alpha) + 6\csc(\alpha)$$
+
+$$L = \frac{3}{4} \sec(\alpha) + 6\csc(\alpha)$$
+
+(b) &nbsp;&nbsp;&nbsp;&nbsp;(i) Using the derivatives given in the formula booklet:
+
+$$\frac{dL}{d\alpha} = \frac{3}{4}\tan\alpha\sec\alpha - 6\csc\alpha\cot\alpha$$
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii) Solve for $\alpha$:
