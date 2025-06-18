@@ -87,7 +87,7 @@ It is known that 1000 visitors will attend the amusement park on Tuesday. The Dr
 **Solution:**
 
 Use the trig identity $cos2x = 1 - sin^{2}x$
-$$1 - $sin^{2}x = sinx$$
+$$1 - sin^{2}x = sinx$$
 Bring all the terms on one side:
 $$2sin^{2}x + sinx -1 = 0$$
 Use abstraction! Let $y=sin^{2}x$ and solve the quadratic:
@@ -131,6 +131,7 @@ Using abstraction, let $y = e^x$, therefore $y^2 = e^{2x}$
 $$ y^2 - 3y + \ln{k} = 0 $$
 
 Now, using the discriminant: $\sqrt{b^2 - 4ac}$
+
 Since we are looking for a real solution, we note that we have one real solution when $\sqrt{b^2 - 4ac} = 0$. And more when $\sqrt{b^2 - 4ac} > 0$.
 
 <br/>
