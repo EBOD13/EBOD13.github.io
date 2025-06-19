@@ -70,15 +70,28 @@
     </div>
 
     <div class="pdf-popup-overlay" id="pdfPopup">
-      <div class="pdf-popup-content">
-        <button class="close-pdf-btn" id="closePdfBtn">
-          <i class="ri-close-line"></i>
-        </button>
-        <iframe
-          src="/assets/docs/formula_booklet.pdf"
-          frameborder="0"
-          class="pdf-iframe"
-        ></iframe>
+      <div class="pdf-popup-container">
+        <div class="pdf-header">
+          <h3>IB Formula Booklet</h3>
+          <button class="close-pdf-btn" id="closePdfBtn">
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
+        <div class="pdf-content">
+          <object
+            data="/assets/docs/formula_booklet.pdf"
+            type="application/pdf"
+            class="pdf-viewer"
+          >
+            <p>
+              Your browser doesn't support PDF viewing.
+              <a href="/assets/docs/formula_booklet.pdf"
+                >Download the Formula Booklet</a
+              >
+              instead.
+            </p>
+          </object>
+        </div>
       </div>
     </div>
 
@@ -86,6 +99,7 @@
       <h1>IB Math Archive</h1>
 
       <div class="section">
+        <h2 class="section-title">Select Level</h2>
         <div class="paper-buttons">
           <button class="level-btn" data-level="hl">Higher Level</button>
           <button class="level-btn" data-level="sl">Standard Level</button>
@@ -93,6 +107,7 @@
       </div>
 
       <div class="section">
+        <h2 class="section-title">Select Paper</h2>
         <div class="paper-buttons">
           <button class="paper-btn" data-subject="aa" data-paper="1">
             Math AA Paper 1
@@ -110,6 +125,7 @@
       </div>
 
       <div class="section">
+        <h2 class="section-title">Select Session</h2>
         <div class="session-nav">
           <button class="scroll-btn" onclick="scrollSessions(-1)">
             <i class="ri-arrow-left-s-line"></i>

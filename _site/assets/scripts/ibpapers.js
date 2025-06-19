@@ -253,18 +253,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const closePdfBtn = document.getElementById('closePdfBtn');
   
   pdfBtn.addEventListener('click', function() {
-    pdfPopup.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // Prevent scrolling when popup is open
+    pdfPopup.style.display = 'block';
+    document.body.style.overflow = 'hidden';
   });
   
   closePdfBtn.addEventListener('click', function() {
     pdfPopup.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Re-enable scrolling
+    document.body.style.overflow = 'auto';
   });
   
-  // Close popup when clicking outside the content
+  // Close when clicking outside content on desktop
   pdfPopup.addEventListener('click', function(e) {
-    if (e.target === pdfPopup) {
+    if (window.innerWidth >= 768 && e.target === pdfPopup) {
       pdfPopup.style.display = 'none';
       document.body.style.overflow = 'auto';
     }
