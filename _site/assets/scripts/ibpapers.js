@@ -245,3 +245,28 @@ document.addEventListener("DOMContentLoaded", () => {
   ctx.fillText(`B (${B.x}, ${B.y})`, canvasB.x + 10, canvasB.y - 10);
 });
 
+
+// =========== POP UP DOCUMENT SCREEN ==========
+document.addEventListener('DOMContentLoaded', function() {
+  const pdfBtn = document.getElementById('pdfFloatingBtn');
+  const pdfPopup = document.getElementById('pdfPopup');
+  const closePdfBtn = document.getElementById('closePdfBtn');
+  
+  pdfBtn.addEventListener('click', function() {
+    pdfPopup.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when popup is open
+  });
+  
+  closePdfBtn.addEventListener('click', function() {
+    pdfPopup.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+  });
+  
+  // Close popup when clicking outside the content
+  pdfPopup.addEventListener('click', function(e) {
+    if (e.target === pdfPopup) {
+      pdfPopup.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+});

@@ -300,3 +300,73 @@ h1 {
     margin-bottom: 0.5rem;
 }
 }
+
+/* Pop up formula sheet */
+/* Floating PDF Button Styles */
+.floating-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background-color: var(--sage-green);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.floating-btn:hover {
+  background-color: var(--walnut-brown);
+  transform: scale(1.1);
+}
+
+/* PDF Popup Overlay Styles */
+.pdf-popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdf-popup-content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: 80%;
+  background: var(--ivory-cream);
+  border-radius: 8px;
+  padding: 35px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-pdf-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #2c3e50;
+  z-index: 1001;
+}
+
+.pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 4px;
+}
