@@ -485,8 +485,12 @@ Similarly, for the right triangle. We now have:
 
 Using SOH-CAH-TOA, we recall that for sine:
 
-$$\sin(\alpha) = \frac{opposite}{hypotenuse} = \frac{6}{CB} $$
-$$CB = 6\frac{1}{\sin(\alpha)} $$
+$$\sin(\alpha) = \frac{opposite}{hypotenuse} \Rightarrow \sin(\alpha) = \frac{6}{CB} $$
+
+Multiply both sides by CB (to remove it from the right side). Then divide by $\sin(\alpha)$
+
+$$CB\sin(\alpha) = 6 \Rightarrow CB = 6\frac{1}{\sin(\alpha)}$$
+
 $$CB = 6\csc(\alpha) $$
 
 Bringing everything together:
@@ -495,8 +499,202 @@ $$AB = AC + BC \Rightarrow AB = \frac{3}{4} \sec(\alpha) + 6\csc(\alpha)$$
 
 $$L = \frac{3}{4} \sec(\alpha) + 6\csc(\alpha)$$
 
-(b) &nbsp;&nbsp;&nbsp;&nbsp;(i) Using the derivatives given in the formula booklet:
+(b) &nbsp;&nbsp;&nbsp;&nbsp;(i) Using the derivatives given in the formula booklet _(see page 12)_:
 
 $$\frac{dL}{d\alpha} = \frac{3}{4}\tan\alpha\sec\alpha - 6\csc\alpha\cot\alpha$$
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii) Solve for $\alpha$:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii) Now, we are asked to show that when $$\frac{dL}{d\alpha} = 0  \, \alpha =\arctan{2}$$
+
+First, we need to understand what $\arctan$⁡ represents. By doing so, we can clear up some of the confusion and better understand how to approach this question.
+
+In simple terms:
+$$\arctan(h) = \tan^{-1}(h)$$
+
+This is the **_inverse tangent function_**. While the tangent function takes an angle and returns a ratio (opposite/adjacent), the **inverse tangent** does the reverse:
+It takes a ratio and returns the angle whose tangent is that ratio.
+
+<h4> Why This Matters </h4>
+
+In many trigonometry problems, we are given an angle and asked to find the side lengths using sine, cosine, or tangent.
+However, when we use an inverse trig functions such as $\arctan$⁡, the situation is flipped:
+We are given side lengths and need to find the angle that corresponds to them.
+
+So if you know:
+
+&nbsp;&nbsp;&nbsp;&nbsp;(1) the **opposite side** (vertical component), and
+
+&nbsp;&nbsp;&nbsp;&nbsp;(2) the **adjacent side** (horizontal component),
+
+you can use:
+
+$$
+\theta = \arctan \left( \frac{opposite}{adjacent} \right)
+$$
+
+This gives you the angle $\theta$ (in our case that would be $\alpha$) in radians (or degrees, depending on your calculator settings) that corresponds to that triangle.
+
+From here, it becomes clear that there is a direct relationship between **tangent** and **arctan**.
+Since **arctan⁡** is the inverse of the tangent function, this relationship allows us to switch between angles and ratios depending on what’s given. With that in mind, it makes sense to **express everything in our current equation using tangent** — and apply **arctan** ⁡ where necessary — so we can work consistently within the same trigonometric framework.
+
+This strategy will help us simplify the problem and isolate the unknowns more effectively.
+
+First, multiply both sides by $\frac{4}{3}$ to get rid of the fraction to the left
+
+$$\tan\alpha\sec\alpha - 8\csc\alpha\cot\alpha = 0$$
+
+Rewrite $\cot\alpha$ as $\frac{1}{tan\alpha}$ and find a common denominator:
+
+$$\tan\alpha\sec\alpha - 8\csc\alpha\frac{1}{tan\alpha} = 0$$
+
+$$\frac{\tan^{2}\alpha\sec\alpha - 8\csc\alpha\}{tan\alpha} = 0 $$
+
+Multiply both sides by $\tan\alpha$ to get rid of the denominator to the left:
+
+$$\tan^{2}\alpha\sec\alpha - 8\csc\alpha = 0$$
+
+Let's rewrite $\csc\alpha$ as $\frac{1}{sin\alpha}$ and find a common denominator
+
+$$\tan^{2}\alpha\sec\alpha - 8\frac{1}{\sin\alpha} = 0$$
+
+$$\frac{\tan^{2}\alpha\sec\alpha \sin\alpha - 8}{\sin\alpha} = 0 $$
+
+Multiply both sides by the denominator and rewrite $\sec\alpha$ as $\frac{1}{\cos{\alpha}}$
+
+$$\tan^{2}\alpha\sec\alpha \sin\alpha - 8 = 0$$
+$$\tan^{2}\alpha\frac{1}{cos\alpha} \sin\alpha - 8 = 0$$
+
+Observe that we now have $\frac{1}{cos\alpha} \sin\alpha$, when multiplied gives us another $\tan\alpha$. Thus:
+
+$$\tan^{2}\alpha\tan\alpha - 8 = 0 \Rightarrow \tan^{3}\alpha  - 8 = 0$$
+
+Add 8 on both sides:
+
+$$ \tan^{3}\alpha = 8 $$
+
+Take the cube root on both sides:
+
+$$\sqrt[3]{\tan^{3}\alpha} = \sqrt[3]{8}$$
+$$\tan\alpha = 2$$
+
+Since we want to find $\alpha$, we take the inverse of $\tan$ which is $\arctan$. Hence:
+
+$$\alpha = \arctan 2$$
+
+(c)(i) Looking it at the formula booklet, we know the following derivatives:
+
+$$f(\alpha) = \tan\alpha \Rightarrow f^{-1}(\alpha) = \sec^2\alpha$$
+$$f(\alpha) = \sec\alpha \Rightarrow f^{-1}(\alpha) = \sec\alpha \tan\alpha$$
+$$f(\alpha) = \csc\alpha \Rightarrow f^{-1}(\alpha) = -\csc\alpha\cot\alpha$$
+$$f(\alpha) = \cot\alpha \Rightarrow f^{-1}(\alpha) = -\csc^2\alpha$$
+
+We also know from the formula book that the derivative of two functions multiplied together follows the product rule:
+
+$$y = uv \Rightarrow \frac{dy}{dx} = u\frac{dv}{dx} + v\frac{du}{dx}$$
+
+Where $u$ and $v$ are both functions of $x$ (in our case that would be $\alpha$).
+
+Hence we will apply the product rule to $\frac{dL}{d\alpha}$ on both sides of the subtraction sign:
+
+$$\frac{d^2L}{d\alpha^2} = \frac{3}{4}\left(sec^2\alpha \sec\alpha + \sec\alpha\tan\alpha\tan\alpha\right) -6 \left(-\csc\alpha\cot\alpha\cot\alpha + \csc\alpha(-\csc^2\alpha) \right)$$
+
+$$
+\frac{d^2L}{d\alpha^2}=\frac{3}{4}(\sec^3\alpha + \sec\alpha \tan^2\alpha) -6(-\csc\alpha\cot^2\alpha - \csc^3\alpha)
+$$
+
+$$
+\frac{d^2L}{d\alpha^2}=\frac{3}{4}(\sec^3\alpha + \sec\alpha \tan^2\alpha) + 6(\csc\alpha\cot^2\alpha + \csc^3\alpha)
+$$
+
+&nbsp;&nbsp;&nbsp;&nbsp;(ii) To solve this part, we return to our earlier work. Recall that $\alpha = \arctan 2$, which means that $\tan\alpha = 2$. While this can help us get $\cot\alpha = \frac{1}{\tan\alpha} = \frac{1}{2}$ our equation involves $\sec\alpha$, $\csc\alpha$ and $\cot\alpha$.
+
+One way to figure this out is by drawing a right triangle. Based on the information we have, we can construct a triangle with angle $\alpha$. Using the SOH-CAH-TOA definition, we know:
+
+$$\tan\alpha = \frac{opposite}{adjacent}$$
+
+Since $\tan\alpha = 2$ , this means that the opposite side is 2 units and the adjacent side is 1 unit:
+$$\tan\alpha = 2 \Rightarrow \tan\alpha = \frac{2}{1}$$
+
+<div style="text-align: center;">
+<svg width="250" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Triangle -->
+  <polygon points="50,150 150,150 50,50" fill="none" stroke="black" stroke-width="2" />
+  <!-- Right angle box -->
+  <rect x="50" y="140" width="10" height="10" fill="none" stroke="black"/>
+  <!-- Labels -->
+<text x="130" y="146" font-size="14">α</text>
+<text x="100" y="165" font-size="14">1</text> <!-- Adjacent -->
+<text x="30" y="100" font-size="14">2</text> <!-- Opposite -->
+<text x="100" y="90" font-size="14">h</text> <!-- Hypotenuse -->
+  <!-- Hypotenuse line (optional arrow marker if needed) -->
+  <!-- Label the sides -->
+  <line x1="50" y1="150" x2="150" y2="150" stroke="black"/>
+  <line x1="50" y1="150" x2="50" y2="50" stroke="black"/>
+  <line x1="50" y1="50" x2="150" y2="150" stroke="black"/>
+
+</svg>
+</div>
+
+In order to proceed, we must first find the hypotenuse. This can be easily done using the Pythagorean Theorem:
+
+$$c^2 = a^2 + b^2$$
+Where:
+$c = h \, a (adjacent) = 1\, b (opposite) = 2$
+
+$$ h^2 = 2^2 + 1^2 \Rightarrow \sqrt{h^2} = \sqrt{2^2 + 1^2}$$
+$$h = \sqrt{4 + 1} \Rightarrow h = \sqrt{5}$$
+
+Great! Now we have everything we need
+Using **SOH-CAH-TOA**, we can find sine and cosine from our triangle, and then simply take their reciprocals to get cosecant and secant:
+
+$$\sin\alpha = \frac{opposite}{hypotenuse} = \frac{2}{\sqrt{5}} \Rightarrow \csc\alpha = \frac{\sqrt{5}}{2}$$
+
+$$\cos\alpha = \frac{adjacent}{hypotenuse} = \frac{1}{\sqrt{5}} \Rightarrow \sec\alpha = \sqrt{5}$$
+
+Plugging all of those values in $\frac{d^2L}{d\alpha^2}$:
+
+$$
+\frac{d^2L}{d\alpha^2}=\frac{3}{4}\left(\left(\sqrt{5}\right)^3 + \sqrt{5}\cdot 2^2\right) + 6\left(\frac{\sqrt{5}}{2}\cdot\left(\frac{1}{2}\right)^2 + \left(\frac{\sqrt{5}}{2}\right)^3\right)
+$$
+
+Multiply and take apply the powers accordingly:
+
+$$
+\frac{d^2L}{d\alpha^2}=\frac{3}{4}\left(5\sqrt{5} + 4\sqrt{5} \right) + 6\left(\frac{\sqrt{5}}{8} + \frac{5\sqrt{5}}{8}\right)
+$$
+
+$$
+\frac{d^2L}{d\alpha^2}=\frac{3}{4}\left(9\sqrt{5} \right) + 6\left(\frac{6\sqrt{5}}{8} \right)
+$$
+
+$$
+\frac{d^2L}{d\alpha^2}=\frac{27\sqrt{5}}{4} +3\left(\frac{6\sqrt{5}}{4}\right)
+$$
+
+$$
+\frac{d^2L}{d\alpha^2}=\frac{27\sqrt{5}}{4} + \frac{18\sqrt{5}}{4}
+$$
+
+$$
+\frac{d^2L}{d\alpha^2}=\frac{45\sqrt{5}}{4}
+$$
+
+(d)(i) First, recall that:
+
+$$
+\left.\frac{dL}{d\alpha}\right|_{\alpha= \arctan 2} = 0
+$$
+
+This means that $\alpha = \arctan 2$ is a critical point
+
+With this, we also found the second derivative at that point to be:
+
+$$
+\left.\frac{d^2L}{d\alpha^2}\right|_{\alpha= \arctan 2} = \frac{45\sqrt{5}}{4} > 0
+$$
+
+Since the second derivative is **positive**, this tells use that out graph of $L$ is **concave** up at that point.
+Finally, because the first derivative at $\alpha = \arctan 2$ is 0 and the second derivative is greater than 0. We conclude:
+
+<div style="text-align: center;">
+<b><i>L</i></b> has a minimum at $\alpha = \arctan 2$
+</div>
