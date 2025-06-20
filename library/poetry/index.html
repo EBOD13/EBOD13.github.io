@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poetry Collections</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="stylesheet" href="/assets/css/poetry.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+  </head>
+  <body>
+    <!-- Navigation will be loaded here -->
+    <div class="poetry-container">
+      <!-- Collections sidebar -->
+      <div class="collections-sidebar" id="collectionsSidebar">
+        <div class="sidebar-header">
+          <h3>Collections</h3>
+          <button class="close-sidebar" id="closeSidebar">
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
+        <div class="collections-list" id="collectionsList">
+          <!-- Collections will be loaded here -->
+        </div>
+      </div>
+
+      <!-- Main book view -->
+      <div class="book-view">
+        <!-- Cover page -->
+        <div class="book-cover" id="bookCover">
+          <h1 class="collection-title" id="collectionTitle">
+            Collection Title
+          </h1>
+          <p class="collection-subtitle">A collection of poems</p>
+        </div>
+
+        <!-- Poem pages -->
+        <div class="book-pages" id="bookPages">
+          <!-- Pages will be loaded here -->
+        </div>
+
+        <!-- Navigation controls -->
+        <div class="book-controls">
+          <button class="prev-btn" id="prevBtn">
+            <i class="ri-arrow-left-s-line"></i> Previous
+          </button>
+          <button class="next-btn" id="nextBtn">
+            Next <i class="ri-arrow-right-s-line"></i>
+          </button>
+          <button class="collections-btn" id="collectionsBtn">
+            <i class="ri-book-2-line"></i> Collections
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/assets/scripts/poetry.js"></script>
+  </body>
+</html>

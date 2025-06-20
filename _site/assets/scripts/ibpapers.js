@@ -130,58 +130,56 @@ function scrollSessions(direction) {
 
         // Function to parse markdown and render questions
         function renderQuestions(markdownContent) {
-          const questionsContainer =
-            document.getElementById("questionsContainer");
-          questionsContainer.innerHTML = "";
+  const questionsContainer = document.getElementById("questionsContainer");
+  questionsContainer.innerHTML = "";
 
-          // Split the content by question markers
-          const questionSections = markdownContent.split("## Question ");
+  // Preprocess: Replace block math wrapped in $$...$$ with divs MathJax can see
+  const preprocessedMarkdown = markdownContent.replace(
+    /\$\$([\s\S]+?)\$\$/g,
+    (match, mathContent) => `<div class="math-block">\\[${mathContent.trim()}\\]</div>`
+  );
 
-          // Skip the first section (it's the header)
-          for (let i = 1; i < questionSections.length; i++) {
-            const section = questionSections[i];
-            const questionNumber = section.split("\n")[0].trim();
-            const contentParts = section.split("**Content:**");
-            const solutionParts = section.split("**Solution:**");
+  // Split the content by question markers
+  const questionSections = preprocessedMarkdown.split("## Question ");
 
-            if (contentParts.length > 1 && solutionParts.length > 1) {
-              const questionContent = contentParts[1]
-                .split("**Solution:**")[0]
-                .trim();
-              const solutionContent = solutionParts[1].trim();
+  for (let i = 1; i < questionSections.length; i++) {
+    const section = questionSections[i];
+    const questionNumber = section.split("\n")[0].trim();
+    const contentParts = section.split("**Content:**");
+    const solutionParts = section.split("**Solution:**");
 
-              // Create question card
-              const questionCard = document.createElement("div");
-              questionCard.className = "question-card";
-              questionCard.innerHTML = `
-                <div class="question-number">Question ${questionNumber}</div>
-                <div class="question-content">${marked.parse(
-                  questionContent
-                )}</div>
-                <button class="toggle-btn">Show Solution</button>
-                <div class="solution" style="display: none;">
-                  <div style="padding-left: 1rem; margin-left: -1.5rem">
-                    ${marked.parse(solutionContent)}
-                  </div>
-                </div>
-              `;
+    if (contentParts.length > 1 && solutionParts.length > 1) {
+      const questionContent = contentParts[1].split("**Solution:**")[0].trim();
+      const solutionContent = solutionParts[1].trim();
 
-              // Add event listener to the toggle button
-              const toggleBtn = questionCard.querySelector(".toggle-btn");
-              toggleBtn.addEventListener("click", function () {
-                toggleSolution(this);
-              });
+      const questionCard = document.createElement("div");
+      questionCard.className = "question-card";
+      questionCard.innerHTML = `
+        <div class="question-number">Question ${questionNumber}</div>
+        <div class="question-content">${marked.parse(questionContent)}</div>
+        <button class="toggle-btn">Show Solution</button>
+        <div class="solution" style="display: none;">
+          <div style="padding-left: 1rem; margin-left: -1.5rem">
+            ${marked.parse(solutionContent)}
+          </div>
+        </div>
+      `;
 
-              questionsContainer.appendChild(questionCard);
-            }
-          }
-
-          // Tell MathJax to typeset the new content
-          if (window.MathJax) {
-            MathJax.typesetPromise();
-          }
-        }
+      const toggleBtn = questionCard.querySelector(".toggle-btn");
+      toggleBtn.addEventListener("click", function () {
+        toggleSolution(this);
       });
+
+      questionsContainer.appendChild(questionCard);
+    }
+  }
+
+  // Tell MathJax to render
+  if (window.MathJax) {
+    MathJax.typesetPromise([questionsContainer]);
+  }
+}
+});
 
 
 // =========== RENDER CANVAS ==============

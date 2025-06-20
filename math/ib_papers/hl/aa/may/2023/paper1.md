@@ -698,3 +698,68 @@ Finally, because the first derivative at $\alpha = \arctan 2$ is 0 and the secon
 <div style="text-align: center;">
 <b><i>L</i></b> has a minimum at $\alpha = \arctan 2$
 </div>
+
+(d)&nbsp;&nbsp;&nbsp;&nbsp;(ii) From our previous work, we have:
+$$\sec\alpha = \sqrt{5}$$
+$$\csc\alpha = \frac{\sqrt{5}}{2}$$
+
+Now, we can plug these values for $L$:
+
+$$L = \frac{3}{4}\cdot \sqrt{5} + 6\cdot \frac{\sqrt{5}}{2}$$
+
+$$L = \frac{3\sqrt{5}}{4} + \frac{6\sqrt{5}}{2}$$
+
+$$L = \frac{3\sqrt{5}}{4} + \frac{12\sqrt{5}}{4}$$
+
+$$L = \frac{15\sqrt{5}}{4}$$
+
+(e) From part (a) and (d) we found that $$L = \frac{3}{4}\sec\alpha + 6\csc\alpha$$
+$$L = \frac{15\sqrt{5}}{4}$$
+
+This is the total length of the diagonal pole (line $AB$) being carried around the corner — one side in the narrow passage (width $\frac{3}{4}​ m) and the other in the room (width 6 m).
+
+Essentially $L$ is the **shortest possible length** of a pole that can just barely turn the corner.
+
+That is, can the minimum length of $L$ be enough to for the 11.25 m pole.
+
+We have $$L = \frac{15\cdot 2.23}{4} \Rightarrow \frac{33.45}{4}$$
+
+$$L \approx 8.36$$
+
+Since:
+$$ L < 11.25$$
+
+We can conclude that **we cannot carry the 11.25m pole** around the corner.
+
+## Question 12
+
+**Content:** Two lines, $L_1$ and $L_2$, intersect at point P. Point A(2t, 8, 3), where $t > 0$, lies on $L_2$. This is shown in the following diagram.
+
+<div style="text-align: center;">
+  <img src="/assets/images/vectors.png" alt="Sine Graph" style="width: 400px; display: inline-block;">
+</div>
+
+The acute angle between the two lines is $\frac{pi}{3}$.
+
+The direction vector of $L_1$ is
+
+$$\displaystyle \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}$
+
+\begin{pmatrix}
+1 \\
+1 \\
+0
+\end{pmatrix}
+
+$$
+
+and $\vec{PA}$=$
+\begin{pmatrix}
+2t \\
+0 \\
+3 + t
+\end{pmatrix}
+$
+
+**Solution:**
+$$

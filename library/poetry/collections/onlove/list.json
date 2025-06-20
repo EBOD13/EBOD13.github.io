@@ -1,0 +1,10 @@
+{
+  "id": "onlove",
+  "name": "On Love",
+  "poems": [
+    {
+      "file": "lovesucks.md",
+      "title": "Love Sucks"
+    }
+  ]
+}

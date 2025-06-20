@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!--=============== GOOGLE FONTS ===============-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- MathJax -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async 
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+</head>
+
+<body>
+  <header class="header">
+  <nav class="nav container">
+    <a href="\" class="nav__logo">
+      <i class="ri-graduation-cap-fill"></i> The Brilliant Tutor
+    </a>
+
+    <div class="nav__menu" id="nav-menu">
+      <ul class="nav__list">
+        <!-- About Dropdown -->
+        <li class="dropdown__item">
+          <div class="nav__link dropdown__trigger">
+            About <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+          </div>
+
+          <ul class="dropdown__menu">
+            <li>
+              <a href="/about/personal/" class="dropdown__link"
+                ><i class="ri-book-2-line"></i> Personal Blog</a
+              >
+            </li>
+            <li>
+              <a href="/about/math/" class="dropdown__link"
+                ><i class="ri-formula"></i> Math Blog</a
+              >
+            </li>
+            <li>
+              <a href="/about/travel/" class="dropdown__link"
+                ><i class="ri-earth-line"></i> Travel Blog</a
+              >
+            </li>
+          </ul>
+        </li>
+        <!-- Resume -->
+        <li><a href="/resume" class="nav__link">Resume</a></li>
+        <!-- Projects -->
+        <li><a href="/projects" class="nav__link">Projects</a></li>
+
+        <!-- Math Dropdown -->
+        <li class="dropdown__item">
+          <div class="nav__link dropdown__trigger">
+            Mathematics <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+          </div>
+
+          <ul class="dropdown__menu">
+            <li>
+              <a href="/math/calculus/" class="dropdown__link"
+                ><i class="ri-function-line"></i> Calculus</a
+              >
+            </li>
+            <li>
+              <a href="/math/number-theory/" class="dropdown__link"
+                ><i class="ri-infinity-line"></i> Number Theory</a
+              >
+            </li>
+            <li>
+              <a href="/math/ib_papers/" class="dropdown__link"
+                ><i class="ri-file-list-line"></i> IB Past Papers</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <!-- Library Dropdown -->
+        <li class="dropdown__item">
+          <div class="nav__link dropdown__trigger">
+            Library <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+          </div>
+
+          <ul class="dropdown__menu">
+            <li>
+              <a href="/library/poetry" class="dropdown__link"
+                ><i class="ri-music-line"></i> Poetry</a
+              >
+            </li>
+            <li>
+              <a href="/library/books/" class="dropdown__link"
+                ><i class="ri-book-marked-line"></i> Books</a
+              >
+            </li>
+            <li>
+              <a href="/library/writings/" class="dropdown__link"
+                ><i class="ri-quill-pen-line"></i> Writings</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li><a href="/contact" class="nav__link">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="nav__toggle" id="nav-toggle">
+      <i class="ri-menu-line"></i>
+    </div>
+  </nav>
+</header>
+
+
+<main class="main">
+        <!--==================== HERO ====================-->
+        <section class="hero">
+            <div class="hero__content">
+                <h1 class="hero__title">The Intersection of Mathematics & Poetry</h1>
+                <p class="hero__subtitle">Where elegance meets precision in a dance of numbers and words</p>
+                <div class="hero__buttons">
+                    <a href="#math" class="btn btn--primary">Explore Mathematics</a>
+                    <a href="#poetry" class="btn btn--outline">Read Poetry</a>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== ABOUT ====================-->
+        <section class="about section" id="about">
+            <div class="about__container container">
+                <div class="about__image">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Scholar at work">
+                </div>
+                <div class="about__content">
+                    <h2 class="about__title">The Secrets of Primes</h2>
+                    <p class="about__text">This is quite interesting — maybe even the most fascinating thing in human history. For years, we’ve developed the technology to send people beyond Earth and into space.</p>
+                    <p class="about__text"> We’ve landed on the moon, created tools to explore the depths of the oceans, and ventured into the most mysterious parts of the sea. We’ve conquered the skies with fast jets, planes, and other aircraft. </p>
+                    <p class="about__text">We’ve discovered cures for diseases that once devastated humanity, and we developed effective vaccines for COVID-19 in less than a year. We’ve done all that—and so much more.</p>
+                    <p class="about__text">And yet, we remain haunted—or perhaps hunted — by one of the deepest secrets in mathematics: <b>the mystery of the primes.</b></p>
+                    <p class="about__text">Their apparent randomness—though not truly random, as suggested by the Riemann Hypothesis and the known distribution of primes—still hides something profound. </p>
+                    <p class="about__text"> <b>It doesn’t reveal why. </b> </p>
+                    <p class="about__text">And despite all this, we reduce their value to a seven-digit prize and the global appraisal of all mathematicians. </p>
+                    <p class="about__text"><b><i>This is incredible.</i></b></p>
+                
+                    <p class="about__signature">— Daniel O. Esambu</p>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== MATH ====================-->
+        <section class="math section" id="math">
+            <div class="math__container container">
+                <div class="math__header">
+                    <h2 class="math__title">Mathematical Explorations</h2>
+                    <p class="math__subtitle">Elegant solutions to complex problems, presented with clarity and beauty</p>
+                </div>
+                <div class="math__grid">
+                    <!-- Math Card 1 -->
+                    <div class="math__card">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Calculus" class="math__card-image">
+                        <div class="math__card-content">
+                            <h3 class="math__card-title">Calculus of Variations</h3>
+                            <p class="math__card-text">Exploring the beautiful optimization problems that describe nature's most efficient paths, from light refraction to economic models.</p>
+                            <a href="#" class="btn btn--outline">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Math Card 2 -->
+                    <div class="math__card">
+                        <img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Number Theory" class="math__card-image">
+                        <div class="math__card-content">
+                            <h3 class="math__card-title">Prime Number Mysteries</h3>
+                            <p class="math__card-text">Delving into the infinite mysteries of primes, their distribution patterns, and unsolved problems that continue to challenge mathematicians.</p>
+                            <a href="#" class="btn btn--outline">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Math Card 3 -->
+                    <div class="math__card">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Geometry" class="math__card-image">
+                        <div class="math__card-content">
+                            <h3 class="math__card-title">Fractal Geometry</h3>
+                            <p class="math__card-text">Where art meets mathematics in infinite complexity. Exploring self-similar patterns from coastlines to financial markets.</p>
+                            <a href="#" class="btn btn--outline">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== POETRY ====================-->
+        <section class="poetry section" id="poetry">
+            <div class="poetry__container container">
+                <div class="poetry__header">
+                    <h2 class="poetry__title">Poetic Reflections</h2>
+                </div>
+                <div class="poetry__grid">
+                    <!-- Poetry Card 1 -->
+                    <div class="poetry__card">
+                        <h3 class="poetry__card-title">Q.E.D.</h3>
+                        <p class="poetry__card-text">
+                            The proof complete, the theorem stands,<br>
+                            A castle built on shifting sands.<br>
+                            Yet firm it stays through logic's might,<br>
+                            A beacon in the dark of night.
+                        </p>
+                        <p class="poetry__card-date">March 15, 2023</p>
+                    </div>
+                    
+                    <!-- Poetry Card 2 -->
+                    <div class="poetry__card">
+                        <h3 class="poetry__card-title">The Librarian's Lament</h3>
+                        <p class="poetry__card-text">
+                            Leather spines and gilded edges,<br>
+                            Wisdom trapped in paper cages.<br>
+                            Each a world yet to be read,<br>
+                            Silent voices in my head.
+                        </p>
+                        <p class="poetry__card-date">January 22, 2023</p>
+                    </div>
+                    
+                    <!-- Poetry Card 3 -->
+                    <div class="poetry__card">
+                        <h3 class="poetry__card-title">Differential Morning</h3>
+                        <p class="poetry__card-text">
+                            The sun ascends in gradients,<br>
+                            A function smooth with no contents.<br>
+                            Its golden light, the first derivative,<br>
+                            Reveals the world as positive.
+                        </p>
+                        <p class="poetry__card-date">November 7, 2022</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== TRAVEL ====================-->
+        <section class="travel section" id="travel">
+            <div class="travel__container container">
+                <div class="travel__header">
+                    <h2 class="travel__title">Travel Journals</h2>
+                    <p class="travel__subtitle">Moments of beauty captured across the globe</p>
+                </div>
+                <div class="travel__gallery">
+                    <!-- Travel Image 1 -->
+                    <div class="travel__image-container">
+                        <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Florence" class="travel__image">
+                        <div class="travel__image-caption">Florence - The Cradle of Renaissance</div>
+                    </div>
+                    
+                    <!-- Travel Image 2 -->
+                    <div class="travel__image-container">
+                        <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Kyoto" class="travel__image">
+                        <div class="travel__image-caption">Kyoto - Zen and the Art of Mathematics</div>
+                    </div>
+                    
+                    <!-- Travel Image 3 -->
+                    <div class="travel__image-container">
+                        <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Oxford" class="travel__image">
+                        <div class="travel__image-caption">Oxford - Towers of Knowledge</div>
+                    </div>
+                    
+                    <!-- Travel Image 4 -->
+                    <div class="travel__image-container">
+                        <img src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Istanbul" class="travel__image">
+                        <div class="travel__image-caption">Istanbul - Where East Meets West</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== CONTACT ====================-->
+        <section class="contact section" id="contact">
+            <div class="contact__container container">
+                <h2 class="contact__title">Correspondence</h2>
+                <p class="contact__text">For inquiries regarding mathematical collaborations, poetry publications, or simply to share thoughts on the beauty of numbers and words.</p>
+                
+                <form class="contact__form">
+                    <div class="contact__input-group">
+                        <input type="text" class="contact__input" placeholder="Your Name" required>
+                    </div>
+                    <div class="contact__input-group">
+                        <input type="email" class="contact__input" placeholder="Your Email" required>
+                    </div>
+                    <div class="contact__input-group">
+                        <textarea class="contact__textarea" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+  <div class="footer__container container">
+    <div class="footer__col">
+      <a href="#" class="footer__logo">
+        <i class="ri-article-line"></i> EBOD
+      </a>
+      <p class="footer__text">
+        Exploring the elegant intersection of mathematics, poetry, and the
+        cultivated life.
+      </p>
+      <div class="footer__social">
+        <a
+          href="https://youtube.com/@brilliantstarss?si=4fLSC5LQeRPhzzuJ"
+          target="_blank"
+          class="footer__social-link"
+          ><i class="ri-youtube-fill"></i
+        ></a>
+        <a href="#" class="footer__social-link" target="_blank"
+          ><i class="ri-instagram-line"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/daniel-esambu"
+          target="_blank"
+          class="footer__social-link"
+          ><i class="ri-linkedin-box-fill"></i
+        ></a>
+        <a
+          href="https://github.com/EBOD13"
+          target="_blank"
+          class="footer__social-link"
+          ><i class="ri-github-fill"></i
+        ></a>
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <h3 class="footer__title">Navigation</h3>
+      <ul class="footer__links">
+        <li><a href="#about" class="footer__link">About</a></li>
+        <li><a href="#math" class="footer__link">Mathematics</a></li>
+        <li><a href="#poetry" class="footer__link">Poetry</a></li>
+        <li><a href="#travel" class="footer__link">Travel</a></li>
+        <li><a href="#contact" class="footer__link">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h3 class="footer__title">Resources</h3>
+      <ul class="footer__links">
+        <li><a href="#" class="footer__link">Mathematical Papers</a></li>
+        <li><a href="#" class="footer__link">Poetry Collections</a></li>
+        <li><a href="#" class="footer__link">Recommended Reading</a></li>
+        <li><a href="#" class="footer__link">Travel Guides</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h3 class="footer__title">Subscribe</h3>
+      <p class="footer__text">
+        Receive periodic musings on mathematics and poetry.
+      </p>
+      <form class="footer__form">
+        <input type="email" placeholder="Your Email" class="contact__input" />
+        <button type="submit" class="btn btn--primary footer__btn">
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer__copyright">
+    <p>&copy; 2023 EBOD. All rights reserved.</p>
+  </div>
+</footer>
+
+
+  <!-- Main JavaScript -->
+  <script src="/assets/scripts/main.js"></script>
+</body>
+</html>

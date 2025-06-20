@@ -7,6 +7,7 @@ theme: minima
 include:
   - _includes
   - assets
+  - library/poetry/collections
 # Optional but recommended for GH Pages
 plugins:
   - jekyll-feed
