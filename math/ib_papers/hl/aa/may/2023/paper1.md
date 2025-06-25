@@ -78,7 +78,45 @@ It is known that 1000 visitors will attend the amusement park on Tuesday. The Dr
 (b) Estimate the minimum number of times <i>The Dragon</i> must run to satisfy demand.
 **Solution:**
 
-<p style="text-align: center;">Coming soon!</p>
+&nbsp;&nbsp;&nbsp;&nbsp;(a)(i) Referring to the frequency table, we observe that a certain number of individuals rode The Dragon. These individuals were randomly selected from a group of 40 people. To calculate the probability that a randomly chosen person rode The Dragon, we sum the frequency of those who rode The Dragon and divide by the total number of people surveyed (i.e., 40). Note that we should exclude the case where no one went to _The Dragon_.
+
+Thus:
+$$\text{Rode at least once: } 16 + 13 + 2 + 3 = 34 $$
+$$ \text{Probability} = \frac{34}{40}$$
+
+&nbsp;&nbsp;&nbsp;&nbsp;(ii) To calculate the expected value, we can use the formula provided in the booklet (page 10).
+$$E(X) = \mu = \sum x P(X=x)$$
+
+Before proceeding, recall that the expected value (denoted by $\mu$)represents the mean of a discrete random variable — that is, the long-run average outcome, where each value is weighted by its probability.
+
+Using the formula, we should be computing:
+
+$$ 0 \cdot \frac{6}{40} + 1 \cdot \frac{16}{40} + 2 \cdot \frac{13}{40} + 3 \cdot \frac{2}{40} + 4 \cdot \frac{3}{40}$$
+
+Or similarly, we could take out the $\frac{1}{40}$:
+$$E(X) = \frac{1}{40}(0\cdot 6 + 1 \cdot 16 + 2 \cdot 13 + 3 \cdot 2 + 4 \cdot 3)$$
+$$\frac{1}{40}(16 + 26 +6 + 12)$$
+$$\frac{1}{40}(16 + 26 +6 + 12)$$
+
+Simplify (divide both numerator and denominator by 20)
+
+$$\frac{60}{40} \Rightarrow \frac{3}{2}$$
+$$E(X) = \frac{3}{2} = 1.5$$
+
+(b) We are told that 1000 visitors will attend the amusement park, and that The Dragon ride has a capacity of 10 people per run. Previously, we calculated the **expected number of riders per 40 visitors** to be:
+
+$$\text{Expected value} = 1.5$$
+
+To estimate the number of people who would ride The Dragon out of 1000 visitors, we scale up the expectation proportionally:
+
+$$\text{Expected value} = \frac{1000}{40} \cdot 1.5 = 25 \cdot 1.5 = 37.5$$
+
+So, we expect about 37.5 people to ride The Dragon. Since the ride can carry 10 people at a time, we divide:
+
+$$\frac{37.5}{10} = 3.75$$
+
+To ensure all expected riders are accommodated, the ride must run at least:
+$$4 \text{ times}$$
 
 ## Question 3
 
@@ -166,7 +204,9 @@ The function $g$ is defined by $g(x) = 3\sin{\frac{2qx}{3}}$, for $0 \le x \le 6
 (b) On the axes above, sketch the graph of $g$.
 
 **Solution:**
-(a) Observe that it take the graph $4m$ to make a full oscillation (period). With this, we use to use the formula: $$\frac{2\pi}{b} = \text{period}$$
+(a) Observe that it take the graph $4m$ to make a full oscillation (period). With this, we use to use the formula:
+
+$$\frac{2\pi}{b} = \text{period}$$
 
 Where $\text{period} = 4m \, \text{and} \ b=q$
 
@@ -244,7 +284,8 @@ In the right triangle, we apply SOH-CAH-TOA. Since we know the hypotenuse is $x$
 $$\sin(\theta) = \frac{opposite}{adjacent}$$
 $$\sin(60) = \frac{h}{x}$$
 
-From the unit circle, we know: $$\sin(60) = \frac{\sqrt{3}}{2}$$
+From the unit circle, we know:
+$$\sin(60) = \frac{\sqrt{3}}{2}$$
 
 So,
 $$\frac{\sqrt{3}}{2} = \frac{h}{x} \Rightarrow h = \frac{\sqrt{3}}{2}x $$
@@ -333,7 +374,8 @@ $$Az + B = -z + 4$$
 With root:
 $$z = 4$$
 
-Hence the roots are $$z = 3i \, -3i\, 4 $$
+Hence the roots are
+$$z = 3i, -3i, 4 $$
 
 ## Question 8
 
@@ -394,7 +436,8 @@ $$d = 2$$
 Find the sum of $n=2$:
 $$S_2 = 2^2 + 4(2) = 12$$
 
-Then: $$u_2 = S_2 - S_1 \Rightarrow u_2 = 12 - 5 = 7$$
+Then:
+$$u_2 = S_2 - S_1 \Rightarrow u_2 = 12 - 5 = 7$$
 
 Now notice that the difference between $u_1$ and $u_2$ is 2, thus $d=2$.
 
