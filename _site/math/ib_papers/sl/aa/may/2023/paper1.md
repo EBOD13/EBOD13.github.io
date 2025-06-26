@@ -626,7 +626,7 @@ $$v\left(\frac{1}{3}\right) = \frac{307}{54}$$
 $$v\left(\frac{1}{3}\right) \approx 5.69$$
 
 Thus, the greatest speed occurs when $t =2$ such that $v(2) = 8ms^{-1}$
-
+<br/><br/>
 (d) When we set the acceleration equal to zer0, we found two critical points, which allowed us to find two maxima. However, now that we are given interval $0 \le t \le 4$, we should attempt to see what happens to the time on the boundaries. That is, when $t = 0$ and $t=1$.
 
 $$v(0) = -(0)^3 + \frac{7}{2}\cdot 0^2 - 2(0) + 6$$
@@ -639,7 +639,8 @@ $$v(4) = -64 + \frac{7}{2}\cdot 16 - 8 +6  \Rightarrow -64 + 56 -2$$
 $$|v(4)| = |-10| \Rightarrow v(4) = 10ms^{-1}$$
 
 We can make two observation from above. First, we note that on the boundary, when $t=4$ we have the greatest speed. Second, notice that this was a negative speed. This is because the object might have started moving in the opposite direction, therefore yielding a negative velocity. Nonetheless, by taking the absolute value of this velocity, we ensure to focus solely on the magnitude and ignore the direction (of motion) as this is irrelevant for this question.
-<br/>
+<br/> <br/>
+
 (e) Lastly, we are asked to find the **distance traveled by the object while it is accelerating**. To do this, we must recall that the displacement of an object is obtained by integrating its velocity function, and the total distance traveled corresponds to the definite integral of the speed (i.e., the absolute value of velocity) over time.
 
 However, we must proceed carefully. Since we are asked to find the distance _while the object is accelerating_, we need to consider the intervals where the **acceleration is positive** — that is, where the derivative of velocity, $a(t)=v'(t)$, is greater than zero.
