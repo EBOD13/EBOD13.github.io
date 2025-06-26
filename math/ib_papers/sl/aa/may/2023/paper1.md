@@ -277,10 +277,6 @@ $$\frac{\pi}{2q} = m$$
 
 (b) Must use graphing calculator!
 
-**Content:** Consider $P(z) = 4m - mz + \frac{36}{m}z^2 - z^3$, where $z \in \mathbb{C}$ and $m \in \mathbb{R^+}$.
-
-Given that $z-3i$ is a factor of $P(z)$, find the roots of $P(z) = 0$
-
 **Solution:**
 This is a little tricky! But we've got this.
 We are told that $z-3i$ as a factor of the polynomial $P(z)$.
@@ -476,6 +472,49 @@ $$u_n = u_1 + (n-1)d$$
 Our expression for $u_n$ becomes:
 $$u_n = 5 + (n-1)\cdot 2$$
 
+(d) At first glance, this question might seem a bit challenging — but don’t worry! Let’s break it down. We are given two key pieces of information: the values of $v_2$​ and $v_4$​. Since this is a geometric sequence, we are tasked with finding the common ratio.
+
+To do that, we need to relate the known terms to the common ratio. This can be done by recalling the general formula for the $n$th term of a geometric sequence (see page 3 of the formula booklet):
+
+$$v_n = v_1r^{n-1}$$
+
+where $v_1$​ is the first term, $r$ is the common ratio, and $v_n$​ is the value of the $n$th term.
+
+Now, let's set them up for $v_2$ and $v_4$ and see if we can spot any pattern:
+
+$$v_2 = v_1r^{2-1} \Rightarrow 5 = v_1r$$
+$$v_4 = v_1r^{4-1} \Rightarrow 15 = v_1r^3$$
+
+Notice that both $v_2$ and $v_4$​ involve different powers of the common ratio rr, but both also include the same base term $v_1$.What we can do is write $v_1$ in terms of $r$ and $v_2$ and $v_4$.
+
+$$v_1 = \frac{5}{r}$$
+$$v_1 = \frac{15}{r^3}$$
+
+Since we have two equations for $v_1$ and both having $r$, we can set them equal to each other and solve for $r$:
+
+$$\frac{5}{r} = \frac{15}{r^3}$$
+$$ 5r^3 = 15r \Rightarrow 5r^3 - 15r = 0$$
+Factor out $5r$:
+
+$$5r(r^2 -3) = 0$$
+
+Since the common ratio $r$ cannot be equal to 0, we end up with:
+
+$$r^2-3 = 0  \Rightarrow r^2 = 3$$
+$$\sqrt{r^2} =\sqrt{3} \Rightarrow r = \pm \sqrt{3}$$
+
+(e) Since we discovered that our common ratio could either be $r = \sqrt{3}$ or $r = -\sqrt{3}$, we should observe that with $r=\sqrt{3}$, our sum will rise as we move up the series. However, given the requirement that $v_{99}$ should be smaller than 0, we can expect our values to become increasingly negative as we progress in the sequence. To find $v_5$, we will use $r = -\sqrt{3}$. <br/>
+
+But first, let's get $v_1$, which may be obtained from our prior solution:
+
+$$v_1 = \frac{5}{r} \Rightarrow v_1 = \frac{5}{-\sqrt{3}}$$
+
+Now, $v_5$ (Using the geometric formula for the $n$th term):
+
+$$v_5 = \frac{5}{-\sqrt{3}}(-\sqrt{3})^4$$
+$$v_5 = \frac{5}{-\sqrt{3}} \cdot 9$$
+$$v_5 = \frac{45}{-\sqrt{3}}$$
+
 ## Question 9
 
 **Content:** An object moves along a straight line. Its velocity, $v$m$s^{-1}$, at time $t$ seconds is given by $v(t) = -t^3 + \frac{7}{2}t^2 - 2t + 6$, for $ 0 \le t \le 4$. The object first comes to rest at $t=k$.
@@ -629,3 +668,6 @@ This approach makes sense because:
 Thus, combining those intervals we have
 
 $$s(t)_{\text{with increasing speed}} = \int_{\frac{1}{3}}^2 v(t) dt + \int_4^k |v(t)| dt$$
+
+$$
+$$
