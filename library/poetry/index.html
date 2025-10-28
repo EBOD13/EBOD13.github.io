@@ -8,8 +8,8 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/assets/style.css" />
-    <link rel="stylesheet" href="/assets/css/poetry.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/css/poetry.css" />
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
     <style>
@@ -189,7 +189,7 @@
         align-items: center;
         padding: 0 2rem;
         pointer-events: none;
-        z-index: 30; /* Higher than pages */
+        z-index: 30;
       }
 
       .side-arrow {
@@ -235,7 +235,7 @@
         pointer-events: none;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Changed from center to flex-start for scrolling */
+        justify-content: flex-start;
         align-items: center;
         text-align: center;
       }
@@ -263,7 +263,7 @@
           var(--parchment) 0%,
           var(--aged-paper) 100%
         );
-        justify-content: center; /* Keep welcome page centered */
+        justify-content: center;
       }
 
       .welcome-title {
@@ -285,7 +285,7 @@
       /* Cover Page */
       .cover-page {
         background: var(--parchment);
-        justify-content: center; /* Keep cover page centered */
+        justify-content: center;
       }
 
       .cover-title {
@@ -335,11 +335,11 @@
         background: var(--parchment);
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Allow content to flow naturally */
+        justify-content: flex-start;
         align-items: center;
         text-align: center;
         padding: 2rem 3rem;
-        min-height: auto; /* Allow natural height */
+        min-height: auto;
       }
 
       .poem-era {
@@ -425,7 +425,7 @@
         transform: scale(1.1);
       }
 
-      /* Loading States */
+      /* Loading and Error States */
       .loading {
         display: flex;
         justify-content: center;
@@ -538,21 +538,40 @@
         let collections = [];
         let isAnimating = false;
 
+        // Debug function
+        function debug(message) {
+          console.log("DEBUG:", message);
+        }
+
         // Initialize
         loadCollections();
 
         async function loadCollections() {
           try {
-            const response = await fetch("./collections/list.json");
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            debug("Loading collections from: collections/list.json");
+            const response = await fetch("collections/list.json");
+
+            if (!response.ok) {
+              throw new Error(
+                `HTTP ${response.status}: ${response.statusText}`
+              );
+            }
+
             collections = await response.json();
+            debug(`Loaded ${collections.length} collections`);
             renderCollectionsList();
           } catch (error) {
-            collectionsList.innerHTML = `<div class="error">Failed to load collections</div>`;
+            debug(`Error loading collections: ${error.message}`);
+            collectionsList.innerHTML = `<div class="error">Failed to load collections: ${error.message}</div>`;
           }
         }
 
         function renderCollectionsList() {
+          if (!collections || !Array.isArray(collections)) {
+            collectionsList.innerHTML = `<div class="error">No collections found</div>`;
+            return;
+          }
+
           collectionsList.innerHTML = collections
             .map(
               (collection) => `
@@ -576,6 +595,7 @@
           document.querySelectorAll(".collection-item").forEach((item) => {
             item.addEventListener("click", async () => {
               const collectionId = item.getAttribute("data-collection");
+              debug(`Loading collection: ${collectionId}`);
               await loadCollection(collectionId);
               collectionsSidebar.classList.remove("open");
             });
@@ -585,12 +605,23 @@
         async function loadCollection(collectionId) {
           try {
             showLoading();
-            const response = await fetch(
-              `./collections/${collectionId}/list.json`
+            debug(
+              `Loading collection data from: collections/${collectionId}/list.json`
             );
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+            const response = await fetch(
+              `collections/${collectionId}/list.json`
+            );
+
+            if (!response.ok) {
+              throw new Error(
+                `HTTP ${response.status}: Failed to load collection data`
+              );
+            }
 
             const data = await response.json();
+            debug("Loaded collection data:", data);
+
             currentCollection = data;
             poems = data.poems || [];
             currentPageIndex = -1;
@@ -606,7 +637,8 @@
             showCoverPage();
             updateNavigation();
           } catch (error) {
-            poemScrollContainer.innerHTML = `<div class="error">Failed to load collection</div>`;
+            debug(`Error loading collection: ${error.message}`);
+            poemScrollContainer.innerHTML = `<div class="error">Failed to load collection: ${error.message}</div>`;
           }
         }
 
@@ -662,10 +694,14 @@
 
           try {
             const poem = poems[index];
-            const response = await fetch(
-              `./collections/${currentCollection.id}/${poem.file}`
-            );
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const poemUrl = `collections/${currentCollection.id}/${poem.file}`;
+            debug(`Loading poem from: ${poemUrl}`);
+
+            const response = await fetch(poemUrl);
+
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}: Failed to load poem`);
+            }
 
             const content = await response.text();
             const { data, content: poemContent } = parseFrontMatter(content);
@@ -709,7 +745,8 @@
             updateNavigation();
             updateProgress();
           } catch (error) {
-            poemScrollContainer.innerHTML = `<div class="error">Failed to load poem</div>`;
+            debug(`Error loading poem: ${error.message}`);
+            poemScrollContainer.innerHTML = `<div class="error">Failed to load poem: ${error.message}</div>`;
             isAnimating = false;
           }
         }
