@@ -111,7 +111,7 @@ function scrollSessions(direction) {
                   currentSubject &&
                   currentPaper &&
                   currentSession
-                    ? `<p class="debug-path">Tried to load: ${filePath}</p>`
+                    ? ``
                     : ""
                 }
               </div>

@@ -121,79 +121,155 @@
 .poem-content p {
     margin-bottom: var(--space-md);
 }
-
+/* Hide old controls section */
 .book-controls {
-    display: flex;
-    justify-content: space-between;
-    padding: var(--space-md);
-    background-color: var(--aged-paper);
-    border-top: 1px solid var(--walnut-brown);
+  display: none;
 }
 
+/* ======== TITLE & NAVIGATION LAYOUT ======== */
+.title-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: var(--space-md);
+}
+
+.title-nav .collection-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: var(--font-bold);
+  color: var(--mahogany);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  text-align: center;
+}
+
+/* ======== ARROW BUTTONS (Prev / Next) ======== */
+.arrow-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--walnut-brown);
+  font-size: 2rem;
+  border-radius: 50%;
+  padding: 0.4rem;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform 0.2s ease;
+}
+
+.arrow-btn:hover {
+  background-color: var(--parchment);
+  color: var(--mahogany);
+  transform: scale(1.05);
+}
+
+/* ======== MENU BUTTON (Collections) ======== */
 .collections-btn {
-    display: none;
+  background: transparent;
+  border: none;
+  color: var(--mahogany);
+  font-size: 2rem;
+  margin-top: var(--space-lg);
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.5rem;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform 0.2s ease;
 }
 
+.collections-btn:hover {
+  background-color: var(--parchment);
+  color: var(--walnut-brown);
+  transform: scale(1.05);
+}
+
+/* ======== SIDEBAR COLLECTIONS ======== */
 .collection-item {
-    padding: var(--space-sm);
-    margin-bottom: var(--space-xs);
-    cursor: pointer;
-    border-radius: var(--radius-small);
-    transition: var(--transition-fast);
+  padding: var(--space-sm);
+  margin-bottom: var(--space-xs);
+  cursor: pointer;
+  border-radius: var(--radius-small);
+  transition: var(--transition-fast);
 }
 
 .collection-item:hover {
-    background-color: var(--parchment);
+  background-color: var(--parchment);
 }
 
 .collection-item.active {
-    background-color: var(--sage-green);
-    color: var(--ivory-cream);
+  background-color: var(--sage-green);
+  color: var(--ivory-cream);
 }
 
+/* ======== CLOSE SIDEBAR BUTTON ======== */
 .close-sidebar {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--mahogany);
-    cursor: pointer;
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--mahogany);
+  cursor: pointer;
 }
 
-/* Mobile styles */
+/* ======== MOBILE STYLES ======== */
 @media screen and (max-width: 992px) {
-    .collections-sidebar {
-        transform: translateX(-100%);
-        width: 280px;
-    }
-    
-    .collections-sidebar.open {
-        transform: translateX(0);
-    }
-    
-    .book-view {
-        margin-left: 0;
-    }
-    
-    .collections-btn {
-        display: block;
-    }
-    
-    .close-sidebar {
-        display: block;
-    }
+  .collections-sidebar {
+    transform: translateX(-100%);
+    width: 280px;
+  }
+
+  .collections-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .book-view {
+    margin-left: 0;
+  }
+
+  .collections-btn {
+    display: block;
+  }
+
+  .close-sidebar {
+    display: block;
+  }
+
+  .title-nav .collection-title {
+    font-size: 2.4rem;
+  }
+
+  .arrow-btn {
+    font-size: 1.6rem;
+    padding: 0.3rem;
+  }
+
+  .collections-btn {
+    font-size: 1.8rem;
+  }
 }
 
-/* Page turn animation */
+/* ======== PAGE TURN ANIMATION ======== */
 @keyframes pageTurn {
-    0% {
-        transform: rotateY(0);
-    }
-    100% {
-        transform: rotateY(-180deg);
-    }
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(-180deg);
+  }
 }
 
 .page-turn {
-    animation: pageTurn 0.8s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+  animation: pageTurn 0.8s cubic-bezier(0.42, 0, 0.58, 1) forwards;
 }
+
+.book-pages {
+  transition: opacity 0.5s ease;
+  min-height: 60vh;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.book-pages.fade-out {
+  opacity: 0;
+}
+

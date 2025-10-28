@@ -4,15 +4,452 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Poetry Collections</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/assets/style.css" />
     <link rel="stylesheet" href="/assets/css/poetry.css" />
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--serif-font);
+        background: var(--ivory-cream);
+        color: var(--ink-black);
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* Main Layout */
+      .poetry-container {
+        height: 100vh;
+        display: flex;
+        position: relative;
+      }
+
+      /* Collections Sidebar */
+      .collections-sidebar {
+        width: 320px;
+        background: var(--parchment);
+        border-right: 1px solid var(--aged-paper);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .collections-sidebar.open {
+        transform: translateX(0);
+      }
+
+      .sidebar-header {
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--aged-paper);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .sidebar-header h3 {
+        color: var(--mahogany);
+        font-size: 1.3rem;
+      }
+
+      .close-sidebar {
+        background: none;
+        border: none;
+        color: var(--walnut-brown);
+        font-size: 1.4rem;
+        cursor: pointer;
+        padding: 0.25rem;
+      }
+
+      .collections-list {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1rem;
+      }
+
+      .collection-item {
+        padding: 1.25rem;
+        margin-bottom: 0.75rem;
+        background: var(--ivory-cream);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+      }
+
+      .collection-item:hover {
+        transform: translateY(-2px);
+        border-color: var(--sage-green);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .collection-item.active {
+        border-left: 4px solid var(--sage-green);
+        background: var(--parchment);
+      }
+
+      .collection-name {
+        font-weight: 600;
+        color: var(--mahogany);
+        font-size: 1.1rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .collection-years {
+        color: var(--sage-green);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .collection-description {
+        color: var(--walnut-brown);
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      /* Main Content */
+      .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: var(--parchment);
+        position: relative;
+      }
+
+      /* Navigation - Fixed at top */
+      .nav-header {
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--aged-paper);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--parchment);
+        z-index: 20;
+        position: relative;
+        flex-shrink: 0;
+      }
+
+      .nav-title {
+        font-size: 1.4rem;
+        color: var(--mahogany);
+        font-weight: 600;
+        flex: 1;
+        text-align: left;
+      }
+
+      .poem-title-nav {
+        font-size: 1.2rem;
+        color: var(--walnut-brown);
+        font-weight: 500;
+        text-align: right;
+        flex: 1;
+        font-style: italic;
+      }
+
+      /* Content Area - Now scrollable */
+      .content-area {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Scrollable container for poems */
+      .poem-scroll-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        padding: 1rem 0;
+      }
+
+      /* Side Arrows - Fixed positioning */
+      .side-arrows {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        pointer-events: none;
+        z-index: 30; /* Higher than pages */
+      }
+
+      .side-arrow {
+        width: 60px;
+        height: 60px;
+        border: none;
+        border-radius: 50%;
+        background: var(--walnut-brown);
+        color: var(--ivory-cream);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.5rem;
+        pointer-events: all;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .side-arrow:hover:not(:disabled) {
+        background: var(--mahogany);
+        transform: scale(1.1);
+      }
+
+      .side-arrow:disabled {
+        background: var(--aged-paper);
+        color: var(--walnut-brown);
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+        opacity: 0.5;
+      }
+
+      /* Pages */
+      .page {
+        position: relative;
+        width: 100%;
+        min-height: 100%;
+        padding: 2rem 3rem;
+        opacity: 0;
+        transform: translateX(40px);
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Changed from center to flex-start for scrolling */
+        align-items: center;
+        text-align: center;
+      }
+
+      .page.active {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: all;
+      }
+
+      .page.exit-left {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+
+      .page.exit-right {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+
+      /* Welcome Page */
+      .welcome-page {
+        background: linear-gradient(
+          135deg,
+          var(--parchment) 0%,
+          var(--aged-paper) 100%
+        );
+        justify-content: center; /* Keep welcome page centered */
+      }
+
+      .welcome-title {
+        font-size: 3.5rem;
+        color: var(--mahogany);
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        line-height: 1.1;
+      }
+
+      .welcome-subtitle {
+        font-size: 1.3rem;
+        color: var(--walnut-brown);
+        max-width: 500px;
+        line-height: 1.6;
+        margin-bottom: 3rem;
+      }
+
+      /* Cover Page */
+      .cover-page {
+        background: var(--parchment);
+        justify-content: center; /* Keep cover page centered */
+      }
+
+      .cover-title {
+        font-size: 2.8rem;
+        color: var(--mahogany);
+        margin-bottom: 1rem;
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      .cover-years {
+        font-size: 1.3rem;
+        color: var(--sage-green);
+        margin-bottom: 2rem;
+        font-weight: 500;
+      }
+
+      .cover-description {
+        font-size: 1.2rem;
+        color: var(--walnut-brown);
+        max-width: 500px;
+        line-height: 1.6;
+        margin-bottom: 3rem;
+      }
+
+      .start-btn {
+        background: var(--walnut-brown);
+        color: var(--ivory-cream);
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: inherit;
+      }
+
+      .start-btn:hover {
+        background: var(--mahogany);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Poem Page - Scrollable */
+      .poem-page {
+        background: var(--parchment);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Allow content to flow naturally */
+        align-items: center;
+        text-align: center;
+        padding: 2rem 3rem;
+        min-height: auto; /* Allow natural height */
+      }
+
+      .poem-era {
+        font-size: 1.1rem;
+        color: var(--sage-green);
+        margin-bottom: 2rem;
+        font-style: italic;
+        max-width: 600px;
+      }
+
+      .poem-content {
+        font-size: 1.3rem;
+        line-height: 1.8;
+        color: var(--ink-black);
+        max-width: 600px;
+        width: 100%;
+      }
+
+      .poem-content p {
+        margin-bottom: 1.5rem;
+      }
+
+      .poem-content p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Progress - Fixed at bottom */
+      .progress-container {
+        padding: 1.5rem 2rem;
+        background: var(--parchment);
+        border-top: 1px solid var(--aged-paper);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        z-index: 20;
+        flex-shrink: 0;
+      }
+
+      .progress-bar {
+        flex: 1;
+        height: 4px;
+        background: var(--aged-paper);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: var(--sage-green);
+        transition: width 0.3s ease;
+      }
+
+      .page-info {
+        color: var(--walnut-brown);
+        font-size: 0.9rem;
+        min-width: 80px;
+        text-align: right;
+      }
+
+      /* Menu Button */
+      .menu-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 60px;
+        height: 60px;
+        background: var(--sage-green);
+        color: var(--ivory-cream);
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.4rem;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        z-index: 50;
+      }
+
+      .menu-btn:hover {
+        background: var(--forest-green);
+        transform: scale(1.1);
+      }
+
+      /* Loading States */
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        color: var(--walnut-brown);
+        font-size: 1.1rem;
+      }
+
+      .error {
+        text-align: center;
+        padding: 3rem;
+        color: var(--walnut-brown);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
   </head>
   <body>
-    <!-- Navigation will be loaded here -->
     <div class="poetry-container">
-      <!-- Collections sidebar -->
+      <!-- Sidebar -->
       <div class="collections-sidebar" id="collectionsSidebar">
         <div class="sidebar-header">
           <h3>Collections</h3>
@@ -20,41 +457,356 @@
             <i class="ri-close-line"></i>
           </button>
         </div>
-        <div class="collections-list" id="collectionsList">
-          <!-- Collections will be loaded here -->
-        </div>
+        <div class="collections-list" id="collectionsList"></div>
       </div>
 
-      <!-- Main book view -->
-      <div class="book-view">
-        <!-- Cover page -->
-        <div class="book-cover" id="bookCover">
-          <h1 class="collection-title" id="collectionTitle">
-            Collection Title
-          </h1>
-          <p class="collection-subtitle">A collection of poems</p>
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="nav-header" id="navHeader" style="display: none">
+          <h1 class="nav-title" id="collectionTitle"></h1>
+          <div class="poem-title-nav" id="poemTitleNav"></div>
         </div>
 
-        <!-- Poem pages -->
-        <div class="book-pages" id="bookPages">
-          <!-- Pages will be loaded here -->
+        <div class="content-area" id="contentArea">
+          <!-- Side arrows for navigation -->
+          <div class="side-arrows" id="sideArrows" style="display: none">
+            <button class="side-arrow side-prev-btn" id="sidePrevBtn" disabled>
+              <i class="ri-arrow-left-line"></i>
+            </button>
+            <button class="side-arrow side-next-btn" id="sideNextBtn" disabled>
+              <i class="ri-arrow-right-line"></i>
+            </button>
+          </div>
+
+          <!-- Scroll container for poems -->
+          <div class="poem-scroll-container" id="poemScrollContainer">
+            <div class="page welcome-page active" id="welcomePage">
+              <h1 class="welcome-title">Poetry Collections</h1>
+              <p class="welcome-subtitle">
+                Discover carefully curated poems that capture the essence of
+                moments, emotions, and stories through timeless verse.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <!-- Navigation controls -->
-        <div class="book-controls">
-          <button class="prev-btn" id="prevBtn">
-            <i class="ri-arrow-left-s-line"></i> Previous
-          </button>
-          <button class="next-btn" id="nextBtn">
-            Next <i class="ri-arrow-right-s-line"></i>
-          </button>
-          <button class="collections-btn" id="collectionsBtn">
-            <i class="ri-book-2-line"></i> Collections
-          </button>
+        <div
+          class="progress-container"
+          id="progressContainer"
+          style="display: none"
+        >
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="page-info" id="pageInfo">Cover</div>
         </div>
       </div>
     </div>
 
-    <script src="/assets/scripts/poetry.js"></script>
+    <!-- Menu Button -->
+    <button class="menu-btn" id="menuBtn">
+      <i class="ri-menu-line"></i>
+    </button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Elements
+        const contentArea = document.getElementById("contentArea");
+        const poemScrollContainer = document.getElementById(
+          "poemScrollContainer"
+        );
+        const navHeader = document.getElementById("navHeader");
+        const welcomePage = document.getElementById("welcomePage");
+        const collectionTitle = document.getElementById("collectionTitle");
+        const poemTitleNav = document.getElementById("poemTitleNav");
+        const collectionsList = document.getElementById("collectionsList");
+        const sideArrows = document.getElementById("sideArrows");
+        const sidePrevBtn = document.getElementById("sidePrevBtn");
+        const sideNextBtn = document.getElementById("sideNextBtn");
+        const menuBtn = document.getElementById("menuBtn");
+        const collectionsSidebar =
+          document.getElementById("collectionsSidebar");
+        const closeSidebar = document.getElementById("closeSidebar");
+        const progressContainer = document.getElementById("progressContainer");
+        const progressFill = document.getElementById("progressFill");
+        const pageInfo = document.getElementById("pageInfo");
+
+        // State
+        let currentCollection = null;
+        let currentPageIndex = -1;
+        let poems = [];
+        let collections = [];
+        let isAnimating = false;
+
+        // Initialize
+        loadCollections();
+
+        async function loadCollections() {
+          try {
+            const response = await fetch("./collections/list.json");
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            collections = await response.json();
+            renderCollectionsList();
+          } catch (error) {
+            collectionsList.innerHTML = `<div class="error">Failed to load collections</div>`;
+          }
+        }
+
+        function renderCollectionsList() {
+          collectionsList.innerHTML = collections
+            .map(
+              (collection) => `
+            <div class="collection-item" data-collection="${collection.id}">
+              <div class="collection-name">${collection.name}</div>
+              ${
+                collection.years
+                  ? `<div class="collection-years">${collection.years}</div>`
+                  : ""
+              }
+              ${
+                collection.description
+                  ? `<div class="collection-description">${collection.description}</div>`
+                  : ""
+              }
+            </div>
+          `
+            )
+            .join("");
+
+          document.querySelectorAll(".collection-item").forEach((item) => {
+            item.addEventListener("click", async () => {
+              const collectionId = item.getAttribute("data-collection");
+              await loadCollection(collectionId);
+              collectionsSidebar.classList.remove("open");
+            });
+          });
+        }
+
+        async function loadCollection(collectionId) {
+          try {
+            showLoading();
+            const response = await fetch(
+              `./collections/${collectionId}/list.json`
+            );
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+            const data = await response.json();
+            currentCollection = data;
+            poems = data.poems || [];
+            currentPageIndex = -1;
+
+            // Update UI
+            collectionTitle.textContent = currentCollection.name;
+            poemTitleNav.textContent = "";
+            navHeader.style.display = "flex";
+            progressContainer.style.display = "flex";
+            sideArrows.style.display = "none";
+            welcomePage.style.display = "none";
+
+            showCoverPage();
+            updateNavigation();
+          } catch (error) {
+            poemScrollContainer.innerHTML = `<div class="error">Failed to load collection</div>`;
+          }
+        }
+
+        function showLoading() {
+          poemScrollContainer.innerHTML =
+            '<div class="loading">Loading collection...</div>';
+        }
+
+        function showCoverPage() {
+          const page = createPage(
+            "cover-page",
+            `
+            <h1 class="cover-title">${currentCollection.name}</h1>
+            ${
+              currentCollection.years
+                ? `<div class="cover-years">${currentCollection.years}</div>`
+                : ""
+            }
+            ${
+              currentCollection.description
+                ? `<div class="cover-description">${currentCollection.description}</div>`
+                : ""
+            }
+            ${
+              poems.length > 0
+                ? `<button class="start-btn" onclick="startReading()">Begin Reading</button>`
+                : ""
+            }
+          `
+          );
+
+          poemScrollContainer.innerHTML = "";
+          poemScrollContainer.appendChild(page);
+          updateProgress();
+        }
+
+        function createPage(className, content) {
+          const page = document.createElement("div");
+          page.className = `page ${className} active`;
+          page.innerHTML = content;
+          return page;
+        }
+
+        function startReading() {
+          if (poems.length > 0) loadPoem(0, "next");
+        }
+
+        async function loadPoem(index, direction) {
+          if (index < 0 || index >= poems.length || isAnimating) return;
+
+          isAnimating = true;
+          const currentPage = poemScrollContainer.querySelector(".page.active");
+
+          try {
+            const poem = poems[index];
+            const response = await fetch(
+              `./collections/${currentCollection.id}/${poem.file}`
+            );
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+            const content = await response.text();
+            const { data, content: poemContent } = parseFrontMatter(content);
+            const poemTitle = data.title || poem.title || `Poem ${index + 1}`;
+
+            // Update navigation with poem title
+            poemTitleNav.textContent = poemTitle;
+            sideArrows.style.display = "flex";
+
+            // Create new page - now scrollable
+            const newPage = createPage(
+              "poem-page",
+              `
+              ${data.era ? `<div class="poem-era">${data.era}</div>` : ""}
+              <div class="poem-content">${marked.parse(poemContent)}</div>
+            `
+            );
+
+            poemScrollContainer.appendChild(newPage);
+
+            // Animate transition
+            setTimeout(() => {
+              if (currentPage) {
+                currentPage.classList.remove("active");
+                currentPage.classList.add(
+                  direction === "next" ? "exit-left" : "exit-right"
+                );
+              }
+
+              newPage.classList.add("active");
+
+              setTimeout(() => {
+                const oldPages =
+                  poemScrollContainer.querySelectorAll(".page:not(.active)");
+                oldPages.forEach((page) => page.remove());
+                isAnimating = false;
+              }, 400);
+            }, 50);
+
+            currentPageIndex = index;
+            updateNavigation();
+            updateProgress();
+          } catch (error) {
+            poemScrollContainer.innerHTML = `<div class="error">Failed to load poem</div>`;
+            isAnimating = false;
+          }
+        }
+
+        function parseFrontMatter(content) {
+          const result = { data: {}, content };
+          try {
+            const frontMatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)/;
+            const match = content.match(frontMatterRegex);
+            if (match) {
+              const frontMatter = match[1];
+              result.content = match[2];
+              frontMatter.split("\n").forEach((line) => {
+                const colonIndex = line.indexOf(":");
+                if (colonIndex > -1) {
+                  const key = line.substring(0, colonIndex).trim();
+                  let value = line.substring(colonIndex + 1).trim();
+                  if (
+                    (value.startsWith('"') && value.endsWith('"')) ||
+                    (value.startsWith("'") && value.endsWith("'"))
+                  ) {
+                    value = value.substring(1, value.length - 1);
+                  }
+                  result.data[key] = value;
+                }
+              });
+            }
+          } catch (error) {
+            console.warn("Error parsing front matter:", error);
+          }
+          return result;
+        }
+
+        function updateNavigation() {
+          sidePrevBtn.disabled = currentPageIndex <= 0;
+          sideNextBtn.disabled = currentPageIndex >= poems.length - 1;
+        }
+
+        function updateProgress() {
+          if (currentPageIndex === -1) {
+            progressFill.style.width = "0%";
+            pageInfo.textContent = "Cover";
+          } else {
+            const progress = ((currentPageIndex + 1) / poems.length) * 100;
+            progressFill.style.width = `${progress}%`;
+            pageInfo.textContent = `${currentPageIndex + 1} / ${poems.length}`;
+          }
+        }
+
+        function navigateToPrev() {
+          if (isAnimating) return;
+          if (currentPageIndex === 0) {
+            showCoverPage();
+            currentPageIndex = -1;
+            poemTitleNav.textContent = "";
+            sideArrows.style.display = "none";
+            updateNavigation();
+          } else if (currentPageIndex > 0) {
+            loadPoem(currentPageIndex - 1, "prev");
+          }
+        }
+
+        function navigateToNext() {
+          if (isAnimating) return;
+          if (currentPageIndex === -1 && poems.length > 0) {
+            loadPoem(0, "next");
+          } else if (currentPageIndex < poems.length - 1) {
+            loadPoem(currentPageIndex + 1, "next");
+          }
+        }
+
+        // Event Listeners
+        sidePrevBtn.addEventListener("click", navigateToPrev);
+        sideNextBtn.addEventListener("click", navigateToNext);
+        menuBtn.addEventListener("click", () =>
+          collectionsSidebar.classList.toggle("open")
+        );
+        closeSidebar.addEventListener("click", () =>
+          collectionsSidebar.classList.remove("open")
+        );
+
+        // Keyboard & Swipe
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowLeft") navigateToPrev();
+          if (e.key === "ArrowRight") navigateToNext();
+          if (e.key === "Escape") collectionsSidebar.classList.remove("open");
+        });
+
+        if (typeof Hammer !== "undefined") {
+          const hammer = new Hammer(contentArea);
+          hammer.on("swipeleft", navigateToNext);
+          hammer.on("swiperight", navigateToPrev);
+        }
+
+        // Global functions
+        window.startReading = startReading;
+      });
+    </script>
   </body>
 </html>

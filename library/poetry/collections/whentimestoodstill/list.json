@@ -1,0 +1,11 @@
+{
+  "id": "whentimestoodstill",
+  "name": "When Time Stood Still", 
+  "years": "2015-2019",
+  "description": "Poems of loss, silence, and survival",
+  "poems": [
+    {"file": "1.md"},
+    {"file": "2.md"},
+    {"file": "3.md"}
+  ]
+}

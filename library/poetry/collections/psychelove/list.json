@@ -1,0 +1,9 @@
+{
+  "id": "psychelove",
+  "name": "Psyche's Love", 
+  "years": "2015-2019",
+  "description": "Poems of an ancient mythical love",
+  "poems": [
+    {"file": "surlalyre.md"}
+  ]
+}
