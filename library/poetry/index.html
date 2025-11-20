@@ -8,6 +8,7 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <!-- Fixed CSS paths for GitHub Pages -->
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="assets/css/poetry.css" />
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -189,7 +190,7 @@
         align-items: center;
         padding: 0 2rem;
         pointer-events: none;
-        z-index: 30;
+        z-index: 30; /* Higher than pages */
       }
 
       .side-arrow {
@@ -235,7 +236,7 @@
         pointer-events: none;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: flex-start; /* Changed from center to flex-start for scrolling */
         align-items: center;
         text-align: center;
       }
@@ -263,7 +264,7 @@
           var(--parchment) 0%,
           var(--aged-paper) 100%
         );
-        justify-content: center;
+        justify-content: center; /* Keep welcome page centered */
       }
 
       .welcome-title {
@@ -285,7 +286,7 @@
       /* Cover Page */
       .cover-page {
         background: var(--parchment);
-        justify-content: center;
+        justify-content: center; /* Keep cover page centered */
       }
 
       .cover-title {
@@ -335,11 +336,11 @@
         background: var(--parchment);
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: flex-start; /* Allow content to flow naturally */
         align-items: center;
         text-align: center;
         padding: 2rem 3rem;
-        min-height: auto;
+        min-height: auto; /* Allow natural height */
       }
 
       .poem-era {
@@ -425,7 +426,7 @@
         transform: scale(1.1);
       }
 
-      /* Loading and Error States */
+      /* Loading States */
       .loading {
         display: flex;
         justify-content: center;
@@ -538,7 +539,7 @@
         let collections = [];
         let isAnimating = false;
 
-        // Debug function
+        // Debug function to help identify path issues
         function debug(message) {
           console.log("DEBUG:", message);
         }
